@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Note: Structured Outputs &amp; Self-Healing JSON Grammars | Ali Hasnain</title>
-    <meta name="description" content="Research notes on deterministic schema adherence, JSON grammar decoding, and self-healing error recovery in production LLM pipelines.">
+    <title>Note: Efficient Guided Generation (Willard &amp; Louf, 2023) | Ali Hasnain</title>
+    <meta name="description" content="Reading note on Efficient Guided Generation for Large Language Models (Willard & Louf, 2023).">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -20,13 +20,18 @@
           <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
             <div class="td-sidebar__inner">
               
-              <div class="td-sidebar__brand d-flex align-items-center justify-content-between">
-                <div>
-                  <a href="../../index.html">Ali Hasnain</a>
-                  <div class="td-sidebar__subtitle">AI & Software Engineering Researcher</div>
-                </div>
-                <button class="btn btn-link td-sidebar__toggle d-md-none p-0 text-dark" type="button" id="td-sidebar-toggle" aria-label="Toggle navigation">
-                  <i class="fas fa-bars fa-lg"></i>
+              <div class="td-sidebar__profile">
+                <img src="../../assets/images/Profile.jpeg" onerror="this.onerror=null; this.src='../../assets/images/profile.svg';" alt="Ali Hasnain" class="profile-img-sidebar">
+              </div>
+
+              <div class="td-sidebar__brand">
+                <a href="../../index.html">Ali Hasnain</a>
+                <div class="td-sidebar__subtitle">University of Sahiwal</div>
+              </div>
+
+              <div class="d-md-none text-center mb-3">
+                <button class="btn btn-sm btn-outline-secondary" type="button" id="td-sidebar-toggle">
+                  <i class="fas fa-bars me-1"></i> Navigation Menu
                 </button>
               </div>
 
@@ -35,7 +40,7 @@
                 <input type="search" id="site-search-input" placeholder="Search site... (Ctrl+K)" autocomplete="off">
               </div>
 
-              <nav class="td-sidebar-nav" id="td-section-nav">
+              <nav class="td-sidebar-nav collapse d-md-block" id="td-section-nav">
                 <ul class="td-sidebar-nav__section pe-md-2 ul-0">
                   <li class="td-sidebar-nav__section-title">
                     <ul class="ul-1">
@@ -47,14 +52,14 @@
                       </li>
                       <li>
                         <a href="../../bio_and_cv/index.html" class="td-sidebar-link">
-                          <i class="fas fa-id-card"></i>
+                          <i class="fas fa-user"></i>
                           <span>Bio &amp; CV</span>
                         </a>
                       </li>
                       <li>
                         <a href="../../research/index.html" class="td-sidebar-link">
                           <i class="fas fa-flask"></i>
-                          <span>Research</span>
+                          <span>Research &amp; Projects</span>
                         </a>
                       </li>
                       <li>
@@ -67,12 +72,6 @@
                         <a href="../../software/index.html" class="td-sidebar-link">
                           <i class="fas fa-code"></i>
                           <span>Software</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="../../data/index.html" class="td-sidebar-link">
-                          <i class="fas fa-database"></i>
-                          <span>Datasets</span>
                         </a>
                       </li>
                       <li>
@@ -108,7 +107,7 @@
               </nav>
 
               <div class="td-sidebar__social">
-                <div class="td-sidebar__social-title">Connect &amp; Profiles</div>
+                <div class="td-sidebar__social-title">Links</div>
                 <div class="td-sidebar__social-links">
                   <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener" class="social-badge">
                     <i class="ai ai-google-scholar"></i> Scholar
@@ -142,72 +141,30 @@
               <span>LLM Reliability</span>
             </nav>
 
-            <h1>Structured Outputs &amp; Self-Healing JSON Grammars</h1>
+            <h1>Efficient Guided Generation for Large Language Models</h1>
+            
             <div class="text-muted small mb-3">
-              <span><i class="fas fa-calendar-alt me-1"></i> Added: 2026</span> &bull; 
-              <span><i class="fas fa-tag me-1"></i> Schema Recovery, Pydantic, Constrained Decoding, Reliability</span>
+              Brandon T. Willard, R&eacute;mi Louf &bull; 2023 &bull; 
+              <a href="https://arxiv.org/abs/2307.09702" target="_blank" rel="noopener">arXiv:2307.09702</a>
             </div>
 
-            <div class="callout callout-success">
-              <strong>Core Takeaway:</strong> Relying exclusively on prompt engineering (e.g., "Return ONLY valid JSON") produces an unacceptably high error rate in mission-critical automated pipelines. Robust agent systems require a defense-in-depth architecture: constrained decoding at the logit level when possible, combined with deterministic parsing filters and structured self-healing feedback loops.
-            </div>
-
-            <h2 id="failure-modes">Taxonomy of LLM Structural Failure Modes</h2>
+            <h2 id="core-idea">Core Idea</h2>
             <p>
-              In our empirical benchmarking across multi-agent workflows, schema non-conformance typically clusters into four distinct failure modes:
+              When forcing LLMs to output structured data (such as JSON adhering to a Pydantic or JSON schema), common approaches either rely on few-shot prompting (which frequently produces invalid syntax) or rejection sampling (re-generating the full output until it parses, which wastes tokens and latency). The authors introduce an algorithm using finite state machines (FSM) constructed from regular expressions or context-free grammars (CFGs) to index the tokenizer's vocabulary. At each autoregressive decoding step, tokens that would violate the grammar are masked out of the logits, ensuring 100% syntactically valid outputs with zero rejection overhead.
             </p>
-            <ol>
-              <li><strong>Markdown Prose Wrapping:</strong> The model includes conversational preamble (<em>"Here is your requested JSON:"</em>) or trailing commentary outside code blocks.</li>
-              <li><strong>Syntax Delimiter Mismatch:</strong> Trailing commas before closing braces (invalid in strict JSON), unescaped internal quotes within string values, or unclosed brackets.</li>
-              <li><strong>Type &amp; Nullability Drift:</strong> Emitting a string representation (<code>"42"</code> or <code>"N/A"</code>) where a strict float or integer is expected, or omitting required fields defined in the schema contract.</li>
-              <li><strong>Hallucinated Key Hierarchy:</strong> Renaming keys or wrapping data in unintended parent objects (e.g., nesting inside an extra <code>"data"</code> wrapper).</li>
-            </ol>
 
-            <h2 id="repair-strategies">Evaluation of Recovery Strategies</h2>
-            <div class="table-responsive">
-              <table class="table table-bordered table-sm small">
-                <thead class="table-light">
-                  <tr>
-                    <th>Strategy</th>
-                    <th>Latency Overhead</th>
-                    <th>Token Cost</th>
-                    <th>Adherence Rate</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Brute-Force Retries</strong></td>
-                    <td>High (Full regeneration)</td>
-                    <td>2x &ndash; 3x token overhead</td>
-                    <td>~88% after 3 attempts</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Grammar-Constrained Decoding</strong></td>
-                    <td>Low (Zero re-prompt)</td>
-                    <td>1x (Optimal)</td>
-                    <td>100% syntactically valid</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Self-Healing Structured Feedback</strong></td>
-                    <td>Moderate (Targeted delta)</td>
-                    <td>1.3x token overhead</td>
-                    <td>100% adherence</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <h2 id="key-insights">Key Insights</h2>
+            <ul>
+              <li><strong>Precomputing FSM Transitions:</strong> Instead of parsing token by token during inference, the grammar is compiled upfront into a deterministic finite automaton (DFA). This keeps inference overhead under negligible milliseconds per token.</li>
+              <li><strong>Zero Fine-Tuning:</strong> Operates directly on the output distribution of any pretrained autoregressive language model without retraining or adapter weights.</li>
+            </ul>
 
-            <h2 id="self-healing-pattern">The Self-Healing Pattern in Validator-AI</h2>
+            <h2 id="limitations-and-relevance">Relevance to My Work</h2>
             <p>
-              When grammar-constrained decoding is unavailable at the model provider API layer, we developed an automated self-healing feedback circuit:
+              While grammar-guided logit masking guarantees <em>syntactic</em> validity (the JSON will parse without syntax errors), it cannot prevent <em>semantic</em> errors (e.g., a number is generated where a positive float within a specific business range was expected, or a required logical constraint between two fields is violated).
             </p>
-            <ol>
-              <li>Raw LLM completion is ingested by a deterministic parser and validated against a Pydantic V2 model.</li>
-              <li>If <code>ValidationError</code> is raised, the specific line, character offset, and expected field types are formatted into a surgical error prompt.</li>
-              <li>A lightweight model (or fast agent node) is invoked with <em>only</em> the malformed JSON snippet and the validation error traceback, rather than re-running the entire prompt history.</li>
-            </ol>
             <p>
-              This architectural pattern eliminated 100% of pipeline-breaking uncaught exceptions in our 100-user concurrency trials.
+              This paper reinforces why a two-tier verification layer is necessary: using constrained decoding or structured output APIs where supported, paired with application-level self-healing repair routines to catch semantic domain errors before state is committed.
             </p>
 
           </main>
@@ -222,18 +179,17 @@
 
       <footer class="td-footer row align-items-center justify-content-between mx-0">
         <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0 px-4">
-          &copy; 2026 Ali Hasnain &bull; Modeled after <a href="https://jkk.name" target="_blank" rel="noopener">jkk.name</a>
+          &copy; 2026 Ali Hasnain &bull; University of Sahiwal
         </div>
         <div class="col-12 col-md-6 text-center text-md-end px-4">
-          <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>GitHub</a> &bull;
-          <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener"><i class="ai ai-google-scholar me-1"></i>Scholar</a> &bull;
-          <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener"><i class="ai ai-orcid me-1"></i>ORCID</a>
+          <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">GitHub</a> &bull;
+          <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> &bull;
+          <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener">ORCID</a>
         </div>
       </footer>
 
     </div>
 
-    <!-- SEARCH MODAL -->
     <div class="search-modal-backdrop" id="search-modal-backdrop">
       <div class="search-modal">
         <div class="search-modal-header">

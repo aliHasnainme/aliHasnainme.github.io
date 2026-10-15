@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Note: Stateful Graph Execution in Multi-Agent Systems | Ali Hasnain</title>
-    <meta name="description" content="Research notes on cyclic state graphs, checkpointing persistence, and failure recovery in LangGraph and multi-agent LLM systems.">
+    <title>Note: Reflexion (Shinn et al., 2023) | Ali Hasnain</title>
+    <meta name="description" content="Reading note on Reflexion: Language Agents with Verbal Reinforcement Learning (Shinn et al., NeurIPS 2023).">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -20,13 +20,18 @@
           <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
             <div class="td-sidebar__inner">
               
-              <div class="td-sidebar__brand d-flex align-items-center justify-content-between">
-                <div>
-                  <a href="../../index.html">Ali Hasnain</a>
-                  <div class="td-sidebar__subtitle">AI & Software Engineering Researcher</div>
-                </div>
-                <button class="btn btn-link td-sidebar__toggle d-md-none p-0 text-dark" type="button" id="td-sidebar-toggle" aria-label="Toggle navigation">
-                  <i class="fas fa-bars fa-lg"></i>
+              <div class="td-sidebar__profile">
+                <img src="../../assets/images/Profile.jpeg" onerror="this.onerror=null; this.src='../../assets/images/profile.svg';" alt="Ali Hasnain" class="profile-img-sidebar">
+              </div>
+
+              <div class="td-sidebar__brand">
+                <a href="../../index.html">Ali Hasnain</a>
+                <div class="td-sidebar__subtitle">University of Sahiwal</div>
+              </div>
+
+              <div class="d-md-none text-center mb-3">
+                <button class="btn btn-sm btn-outline-secondary" type="button" id="td-sidebar-toggle">
+                  <i class="fas fa-bars me-1"></i> Navigation Menu
                 </button>
               </div>
 
@@ -35,7 +40,7 @@
                 <input type="search" id="site-search-input" placeholder="Search site... (Ctrl+K)" autocomplete="off">
               </div>
 
-              <nav class="td-sidebar-nav" id="td-section-nav">
+              <nav class="td-sidebar-nav collapse d-md-block" id="td-section-nav">
                 <ul class="td-sidebar-nav__section pe-md-2 ul-0">
                   <li class="td-sidebar-nav__section-title">
                     <ul class="ul-1">
@@ -47,14 +52,14 @@
                       </li>
                       <li>
                         <a href="../../bio_and_cv/index.html" class="td-sidebar-link">
-                          <i class="fas fa-id-card"></i>
+                          <i class="fas fa-user"></i>
                           <span>Bio &amp; CV</span>
                         </a>
                       </li>
                       <li>
                         <a href="../../research/index.html" class="td-sidebar-link">
                           <i class="fas fa-flask"></i>
-                          <span>Research</span>
+                          <span>Research &amp; Projects</span>
                         </a>
                       </li>
                       <li>
@@ -67,12 +72,6 @@
                         <a href="../../software/index.html" class="td-sidebar-link">
                           <i class="fas fa-code"></i>
                           <span>Software</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="../../data/index.html" class="td-sidebar-link">
-                          <i class="fas fa-database"></i>
-                          <span>Datasets</span>
                         </a>
                       </li>
                       <li>
@@ -108,7 +107,7 @@
               </nav>
 
               <div class="td-sidebar__social">
-                <div class="td-sidebar__social-title">Connect &amp; Profiles</div>
+                <div class="td-sidebar__social-title">Links</div>
                 <div class="td-sidebar__social-links">
                   <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener" class="social-badge">
                     <i class="ai ai-google-scholar"></i> Scholar
@@ -142,48 +141,35 @@
               <span>Multi-Agent Systems</span>
             </nav>
 
-            <h1>Stateful Graph Execution in Multi-Agent LLM Systems</h1>
+            <h1>Reflexion: Language Agents with Verbal Reinforcement Learning</h1>
+            
             <div class="text-muted small mb-3">
-              <span><i class="fas fa-calendar-alt me-1"></i> Added: 2026</span> &bull; 
-              <span><i class="fas fa-tag me-1"></i> LangGraph, State Persistence, Fault Tolerance</span>
+              Noah Shinn, Federico Cassano, Edward Berman, Ashwin Gopinath, Karthik Narasimhan, Shunyu Yao &bull; NeurIPS 2023 &bull; 
+              <a href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noopener">arXiv:2303.11366</a>
             </div>
 
-            <div class="callout callout-success">
-              <strong>Core Takeaway:</strong> Stateless prompting architectures (e.g., standard LangChain chains or linear DAGs) are insufficient for complex analytical agents. Treating agent execution as a stateful cyclic graph with deterministic checkpoint storage (PostgreSQL/Redis) is essential to enable recovery from transient failures, dynamic branching, and human-in-the-loop inspection.
-            </div>
-
-            <h2 id="motivation">The Problem with Linear Agent Pipelines</h2>
+            <h2 id="core-idea">Core Idea</h2>
             <p>
-              Early agent frameworks implemented linear or tree-based prompting architectures (Chain-of-Thought, Tree-of-Thoughts, ReAct). While effective for single-shot question answering, they exhibit critical failure modes in long-horizon workflows:
+              Traditional reinforcement learning updates model weights through scalar reward gradients, which requires massive sample efficiency and fine-tuning infrastructure. <em>Reflexion</em> proposes "verbal reinforcement learning"—converting binary or scalar task failure signals into natural language feedback (self-reflection). The agent stores this reflective text in a memory buffer and prepends it to the prompt in subsequent trials to avoid repeating previous mistakes.
             </p>
+
+            <h2 id="key-mechanisms">Key Mechanisms</h2>
             <ul>
-              <li><strong>Context Overflow &amp; Forgetting:</strong> Appending all prior reasoning steps and tool responses into a single flat message array inevitably hits token limits and degrades attention over critical instructions.</li>
-              <li><strong>Zero Fault Resumption:</strong> If step 5 of a 7-step analysis fails (due to a rate limit or network partition), the entire workflow is lost, wasting compute and tokens.</li>
-              <li><strong>Lack of Cycles:</strong> Real-world analytical reasoning requires revision loops (e.g., evaluate output &rarr; detect deficiency &rarr; revise plan &rarr; re-execute). Linear DAGs cannot represent cycles naturally.</li>
+              <li><strong>Actor:</strong> Generates state-action trajectories using standard prompting (e.g., ReAct).</li>
+              <li><strong>Evaluator:</strong> Computes a reward signal (heuristics, test cases, or an LLM judge) to determine whether the task succeeded or failed.</li>
+              <li><strong>Self-Reflection Model:</strong> When an execution trajectory fails, an evaluator LLM analyzes the trace and outputs verbal critique diagnosing <em>why</em> it failed and what should be altered next time.</li>
+              <li><strong>Memory:</strong> Stores short-term dialogue context and long-term reflection notes across trials.</li>
             </ul>
 
-            <h2 id="cyclic-graphs">Cyclic State Graphs (LangGraph Model)</h2>
-            <p>
-              In LangGraph and modern graph-based runtimes, computation is modeled as a state machine where:
-            </p>
-            <ol>
-              <li><strong>Global State Schema:</strong> An immutable or appended dictionary (typed via Pydantic or TypedDict) defines the exact state variables shared across nodes.</li>
-              <li><strong>Nodes as Pure Functions:</strong> Each node represents an actor (LLM, tool, or deterministic filter) that accepts the current state and returns an incremental update (delta).</li>
-              <li><strong>Conditional Edges:</strong> Edges evaluate the state delta and dynamically determine the next node (e.g., routing to a self-healing node or proceeding to the terminal state).</li>
-            </ol>
-
-            <h2 id="checkpointing">Why Checkpoint Persistence Matters</h2>
-            <p>
-              By attaching a transactional checkpointer (such as PostgreSQL with serialized JSON/Binary payloads), every transition between nodes becomes an ACID-compliant checkpoint:
-            </p>
+            <h2 id="practical-strengths">Strengths</h2>
             <ul>
-              <li><strong>Time-Travel Debugging:</strong> Developers can inspect the exact state vector at step $k$, replay execution, or fork alternative branches from that exact step.</li>
-              <li><strong>Asynchronous Human Intervention:</strong> An agent can pause execution, notify a human reviewer, and safely await an approval webhook hours or days later without keeping a thread running in memory.</li>
+              <li>Substantial performance jumps on decision-making benchmarks (ALFWorld, WebShop) and code generation (HumanEval) without modifying underlying model weights.</li>
+              <li>Provides human-readable reasoning traces, making error diagnosis straightforward.</li>
             </ul>
 
-            <h2 id="relevance">Relevance to Validator-AI</h2>
+            <h2 id="relevance">Takeaways for My Research</h2>
             <p>
-              These principles directly informed our design of <strong>Validator-AI</strong>. By storing founder validation progress in PostgreSQL checkpointers, our multi-agent pipeline achieved 100% resume reliability across simulated network interruptions, forming the foundation of our ongoing research manuscript.
+              Reflexion demonstrates that linguistic error critique is often more sample-efficient than re-running fresh queries from scratch. However, Reflexion relies on ephemeral in-memory context; if the process crashes midway through trial 3, the entire memory trace is lost. In my project (<strong>Validator-AI</strong>), I combined verbal error feedback with persistent PostgreSQL checkpoints so that corrective reflections survive interruptions and can be reviewed asynchronously.
             </p>
 
           </main>
@@ -198,18 +184,17 @@
 
       <footer class="td-footer row align-items-center justify-content-between mx-0">
         <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0 px-4">
-          &copy; 2026 Ali Hasnain &bull; Modeled after <a href="https://jkk.name" target="_blank" rel="noopener">jkk.name</a>
+          &copy; 2026 Ali Hasnain &bull; University of Sahiwal
         </div>
         <div class="col-12 col-md-6 text-center text-md-end px-4">
-          <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>GitHub</a> &bull;
-          <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener"><i class="ai ai-google-scholar me-1"></i>Scholar</a> &bull;
-          <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener"><i class="ai ai-orcid me-1"></i>ORCID</a>
+          <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">GitHub</a> &bull;
+          <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> &bull;
+          <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener">ORCID</a>
         </div>
       </footer>
 
     </div>
 
-    <!-- SEARCH MODAL -->
     <div class="search-modal-backdrop" id="search-modal-backdrop">
       <div class="search-modal">
         <div class="search-modal-header">

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Publications &amp; Working Papers | Ali Hasnain</title>
-    <meta name="description" content="Research publications, manuscripts in preparation, and working papers by Ali Hasnain in multi-agent systems and reliable AI.">
+    <title>Publications | Ali Hasnain</title>
+    <meta name="description" content="Research publications and working papers by Ali Hasnain.">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -20,13 +20,18 @@
           <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
             <div class="td-sidebar__inner">
               
-              <div class="td-sidebar__brand d-flex align-items-center justify-content-between">
-                <div>
-                  <a href="../index.html">Ali Hasnain</a>
-                  <div class="td-sidebar__subtitle">AI & Software Engineering Researcher</div>
-                </div>
-                <button class="btn btn-link td-sidebar__toggle d-md-none p-0 text-dark" type="button" id="td-sidebar-toggle" aria-label="Toggle navigation">
-                  <i class="fas fa-bars fa-lg"></i>
+              <div class="td-sidebar__profile">
+                <img src="../assets/images/Profile.jpeg" onerror="this.onerror=null; this.src='../assets/images/profile.svg';" alt="Ali Hasnain" class="profile-img-sidebar">
+              </div>
+
+              <div class="td-sidebar__brand">
+                <a href="../index.html">Ali Hasnain</a>
+                <div class="td-sidebar__subtitle">University of Sahiwal</div>
+              </div>
+
+              <div class="d-md-none text-center mb-3">
+                <button class="btn btn-sm btn-outline-secondary" type="button" id="td-sidebar-toggle">
+                  <i class="fas fa-bars me-1"></i> Navigation Menu
                 </button>
               </div>
 
@@ -35,7 +40,7 @@
                 <input type="search" id="site-search-input" placeholder="Search site... (Ctrl+K)" autocomplete="off">
               </div>
 
-              <nav class="td-sidebar-nav" id="td-section-nav">
+              <nav class="td-sidebar-nav collapse d-md-block" id="td-section-nav">
                 <ul class="td-sidebar-nav__section pe-md-2 ul-0">
                   <li class="td-sidebar-nav__section-title">
                     <ul class="ul-1">
@@ -47,14 +52,14 @@
                       </li>
                       <li>
                         <a href="../bio_and_cv/index.html" class="td-sidebar-link">
-                          <i class="fas fa-id-card"></i>
+                          <i class="fas fa-user"></i>
                           <span>Bio &amp; CV</span>
                         </a>
                       </li>
                       <li>
                         <a href="../research/index.html" class="td-sidebar-link">
                           <i class="fas fa-flask"></i>
-                          <span>Research</span>
+                          <span>Research &amp; Projects</span>
                         </a>
                       </li>
                       <li>
@@ -67,12 +72,6 @@
                         <a href="../software/index.html" class="td-sidebar-link">
                           <i class="fas fa-code"></i>
                           <span>Software</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="../data/index.html" class="td-sidebar-link">
-                          <i class="fas fa-database"></i>
-                          <span>Datasets</span>
                         </a>
                       </li>
                       <li>
@@ -108,7 +107,7 @@
               </nav>
 
               <div class="td-sidebar__social">
-                <div class="td-sidebar__social-title">Connect &amp; Profiles</div>
+                <div class="td-sidebar__social-title">Links</div>
                 <div class="td-sidebar__social-links">
                   <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener" class="social-badge">
                     <i class="ai ai-google-scholar"></i> Scholar
@@ -140,105 +139,71 @@
               <span>Publications</span>
             </nav>
 
-            <h1>Publications &amp; Working Papers</h1>
+            <h1>Publications</h1>
 
-            <div class="lead mb-4">
-              <p>
-                My publications and ongoing manuscripts focus on fault-tolerant multi-agent architectures, stateful LLM orchestration, and empirical evaluations of reliable AI systems.
-              </p>
-            </div>
-
-            <!-- ACADEMIC NOTICE -->
-            <div class="callout callout-success">
-              <strong><i class="fas fa-info-circle me-1"></i> Forthcoming Preprints</strong>
-              I am currently finalizing research manuscripts for conference submission. As preprints become available, full PDF camera-ready copies, arXiv links, benchmark datasets, and open-source evaluation scripts will be published here and mirrored on my 
-              <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> and 
-              <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener">ORCID</a> profiles.
-            </div>
-
-            <!-- SECTION: MANUSCRIPTS IN PREPARATION -->
-            <h2 id="manuscripts-in-prep">Manuscripts in Preparation &amp; Working Papers</h2>
-
-            <!-- Paper 1 -->
-            <div class="pub-item" id="paper-validator-ai">
-              <span class="badge-prep"><i class="fas fa-pen-nib me-1"></i> Manuscript in Preparation &bull; 2026</span>
-              <div class="pub-title">
-                Validator-AI: A Stateful, Fault-Tolerant Multi-Agent Framework for Complex Decision Workflows
-              </div>
-              <div class="pub-authors">
-                <strong>Ali Hasnain</strong>
-              </div>
-              <div class="pub-venue">
-                Targeting Peer-Reviewed Conference / Journal in Applied AI &amp; Software Engineering (2026/2027)
-              </div>
-              
-              <p class="small text-muted mb-2">
-                <strong>Abstract:</strong> Multi-agent systems powered by Large Language Models (LLMs) frequently break in multi-step analytical domains due to stateless session loss, unbounded context growth, and schema malformation. In this paper, we present <em>Validator-AI</em>, a cyclic state-graph architecture built upon LangGraph and backed by a transactional PostgreSQL checkpointing engine. By separating volatile LLM execution from persistent workflow states, the system guarantees seamless resumption after network failures, timeouts, and rate limits. Furthermore, we introduce an automated self-healing validation layer that deterministically routes malformed outputs through a structured repair loop, neutralizing 100% of defined schema error patterns in our test harness. Re-architecting independent validation modules with asynchronous concurrent scheduling reduced end-to-end latency from ~20 minutes to under 3 minutes under load testing with up to 100 concurrent agents.
-              </p>
-
-              <div class="pub-links">
-                <button class="btn-paper" onclick="toggleBibtex('bibtex-validator')"><i class="fas fa-quote-right"></i> BibTeX</button>
-                <a href="../research/index.html#validator-ai" class="btn-paper"><i class="fas fa-diagram-project"></i> System Details</a>
-                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> Source Code</a>
-                <span class="btn-paper text-muted" style="cursor: default;"><i class="fas fa-lock"></i> PDF Available Upon Submission</span>
-              </div>
-
-              <!-- BibTeX Block -->
-              <div class="bibtex-block" id="bibtex-validator">
-                <button class="btn btn-sm btn-outline-secondary position-absolute top-0 end-0 m-2" onclick="copyText('bibtex-validator-code')">Copy</button>
-                <code id="bibtex-validator-code">@article{hasnain2026validator,
-  author    = {Ali Hasnain},
-  title     = {Validator-AI: A Stateful, Fault-Tolerant Multi-Agent Framework for Complex Decision Workflows},
-  journal   = {Manuscript in Preparation},
-  year      = {2026},
-  url       = {https://github.com/aliHasnainme}
-}</code>
-              </div>
-            </div>
-
-            <!-- Paper 2 -->
-            <div class="pub-item" id="paper-schema-recovery">
-              <span class="badge-prep"><i class="fas fa-clock me-1"></i> Preprint in Progress</span>
-              <div class="pub-title">
-                Deterministic Output Recovery in Autonomous LLM Pipelines: Mitigating Schema Drift and State Degeneracy
-              </div>
-              <div class="pub-authors">
-                <strong>Ali Hasnain</strong>
-              </div>
-              <div class="pub-venue">
-                Technical Report / Working Draft &bull; University of Sahiwal
-              </div>
-              
-              <p class="small text-muted mb-2">
-                <strong>Abstract:</strong> Structured JSON extraction from frontier LLMs is known to produce intermittent formatting anomalies under heavy cognitive load. This study benchmarked retry-based prompting strategies against deterministic schema repair filters across over 1,000 synthetic malformed responses. Our findings show that deterministic repair cycles with structured error context reduce token consumption by 48% compared to brute-force prompting retries while maintaining 100% adherence to target Pydantic contracts.
-              </p>
-
-              <div class="pub-links">
-                <button class="btn-paper" onclick="toggleBibtex('bibtex-schema')"><i class="fas fa-quote-right"></i> BibTeX</button>
-                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> Code Repository</a>
-              </div>
-
-              <div class="bibtex-block" id="bibtex-schema">
-                <button class="btn btn-sm btn-outline-secondary position-absolute top-0 end-0 m-2" onclick="copyText('bibtex-schema-code')">Copy</button>
-                <code id="bibtex-schema-code">@techreport{hasnain2026deterministic,
-  author      = {Ali Hasnain},
-  title       = {Deterministic Output Recovery in Autonomous LLM Pipelines: Mitigating Schema Drift and State Degeneracy},
-  institution = {University of Sahiwal},
-  year        = {2026}
-}</code>
-              </div>
-            </div>
-
-            <!-- REPRODUCIBILITY PROMISE -->
-            <h2 id="open-science">Commitment to Open Research &amp; Reproducibility</h2>
-            <p>
-              Following rigorous open-science standards, all forthcoming research papers will be accompanied by:
+            <p class="text-muted small">
+              Preprints and manuscripts in progress. Copies will be made available here and indexed on <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> and <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener">ORCID</a> upon submission.
             </p>
-            <ul>
-              <li><strong>Public Code Repositories:</strong> Clean, documented Python / PyTorch / LangGraph implementations with Docker containers for deterministic environment replication.</li>
-              <li><strong>Open Data &amp; Checkpoints:</strong> Open release of non-proprietary datasets, prompts, evaluation benches, and model weights via Hugging Face.</li>
-              <li><strong>Open Access:</strong> All preprints self-archived on arXiv and freely accessible without paywalls.</li>
-            </ul>
+
+            <h2 id="in-preparation">Working Papers &amp; In Preparation</h2>
+
+            <div class="pub-item">
+              <div class="pub-title">
+                Validator-AI: A Stateful Multi-Agent System for Automated Startup Validation
+              </div>
+              <div class="pub-authors">
+                <strong>Ali Hasnain</strong>
+              </div>
+              <div class="pub-venue">
+                <span class="status-tag">Manuscript in preparation</span> &bull; 2026
+              </div>
+              <p class="small text-muted mb-2">
+                <strong>Abstract:</strong> Multi-agent LLM systems in extended analytical tasks often suffer from catastrophic context loss and schema non-conformance. This paper evaluates an architecture implemented in LangGraph that couples a PostgreSQL-backed state checkpointer with an automated schema self-healing layer. Experimental evaluation shows that durable checkpoints allow interrupted workflows to resume without data loss, while asynchronous task scheduling cuts execution latency from ~20 minutes to under 3 minutes across 100 concurrent test users.
+              </p>
+              <div class="pub-links">
+                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> Code</a>
+                <button class="btn-paper" onclick="toggleBibtex('bib-validator')"><i class="fas fa-quote-right"></i> BibTeX</button>
+              </div>
+
+              <div class="bibtex-block" id="bib-validator">
+                <button class="btn btn-sm btn-outline-secondary position-absolute top-0 end-0 m-1" onclick="copyText('bib-code-validator')">Copy</button>
+                <code id="bib-code-validator">@misc{hasnain2026validator,
+  author = {Ali Hasnain},
+  title  = {Validator-AI: A Stateful Multi-Agent System for Automated Startup Validation},
+  year   = {2026},
+  note   = {Manuscript in preparation}
+}</code>
+              </div>
+            </div>
+
+            <div class="pub-item">
+              <div class="pub-title">
+                Mitigating Schema Drift in LLM Pipelines via Deterministic Error Feedback
+              </div>
+              <div class="pub-authors">
+                <strong>Ali Hasnain</strong>
+              </div>
+              <div class="pub-venue">
+                <span class="status-tag">Working draft</span> &bull; University of Sahiwal
+              </div>
+              <p class="small text-muted mb-2">
+                <strong>Abstract:</strong> Investigating failure recovery strategies for structured JSON generation in LLMs. Comparing naive full-context retries against deterministic error feedback parsing, measuring token consumption overhead and recovery rate under syntax deviations.
+              </p>
+              <div class="pub-links">
+                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> Code</a>
+                <button class="btn-paper" onclick="toggleBibtex('bib-schema')"><i class="fas fa-quote-right"></i> BibTeX</button>
+              </div>
+
+              <div class="bibtex-block" id="bib-schema">
+                <button class="btn btn-sm btn-outline-secondary position-absolute top-0 end-0 m-1" onclick="copyText('bib-code-schema')">Copy</button>
+                <code id="bib-code-schema">@misc{hasnain2026schema,
+  author = {Ali Hasnain},
+  title  = {Mitigating Schema Drift in LLM Pipelines via Deterministic Error Feedback},
+  year   = {2026},
+  note   = {Working draft}
+}</code>
+              </div>
+            </div>
 
           </main>
 
@@ -252,18 +217,17 @@
 
       <footer class="td-footer row align-items-center justify-content-between mx-0">
         <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0 px-4">
-          &copy; 2026 Ali Hasnain &bull; Modeled after <a href="https://jkk.name" target="_blank" rel="noopener">jkk.name</a>
+          &copy; 2026 Ali Hasnain &bull; University of Sahiwal
         </div>
         <div class="col-12 col-md-6 text-center text-md-end px-4">
-          <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>GitHub</a> &bull;
-          <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener"><i class="ai ai-google-scholar me-1"></i>Scholar</a> &bull;
-          <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener"><i class="ai ai-orcid me-1"></i>ORCID</a>
+          <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">GitHub</a> &bull;
+          <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> &bull;
+          <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener">ORCID</a>
         </div>
       </footer>
 
     </div>
 
-    <!-- SEARCH MODAL -->
     <div class="search-modal-backdrop" id="search-modal-backdrop">
       <div class="search-modal">
         <div class="search-modal-header">

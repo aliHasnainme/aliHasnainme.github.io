@@ -4,60 +4,54 @@ const searchIndex = [
     title: "Home",
     url: "index.html",
     category: "Main",
-    content: "Ali Hasnain personal academic homepage. Researcher in multi-agent LLM systems, generative models, fault tolerance, University of Sahiwal BS Software Engineering."
+    content: "Ali Hasnain personal academic homepage. Software Engineering graduate from University of Sahiwal. Machine learning, multi-agent LLM systems, generative models, and reliable AI."
   },
   {
     title: "Bio & CV",
     url: "bio_and_cv/index.html",
     category: "About",
-    content: "Full academic CV, short biography, education at University of Sahiwal CGPA 3.63, DeepLearning.AI certifications, Harvard CS50, professional experience at AI 3D Scanning and Medtronix."
+    content: "Academic CV, education at University of Sahiwal CGPA 3.63, Python developer at AI 3D Scanning Solution and Medtronix Systems, DeepLearning.AI certs, technical skills in PyTorch, LangGraph, pgvector."
   },
   {
-    title: "Research: Validator-AI",
+    title: "Validator-AI",
     url: "research/index.html",
     category: "Research",
-    content: "Validator-AI: A stateful multi-agent system for automated startup validation using LangGraph, PostgreSQL checkpointer, self-healing LLM schema repair, async execution."
+    content: "Validator-AI: A stateful multi-agent system for automated startup validation using LangGraph, PostgreSQL checkpointer, self-healing schema repair, async execution cutting runtime from 20m to 3m."
   },
   {
     title: "Publications & Working Papers",
     url: "pubs/index.html",
     category: "Publications",
-    content: "Working papers and manuscripts in preparation. Multi-agent stateful decision workflows, fault-tolerant LLM pipelines, preprints."
+    content: "Working papers and manuscripts in preparation. Stateful multi-agent startup validation, schema drift mitigation via deterministic error feedback."
   },
   {
-    title: "Software & Open Source",
+    title: "Software & Repositories",
     url: "software/index.html",
     category: "Software",
-    content: "Open-source repositories on GitHub: Validator-AI, LangGraph orchestrations, RAG pipelines, FastAPI backends, pgvector semantic search."
-  },
-  {
-    title: "Datasets & Benchmarks",
-    url: "data/index.html",
-    category: "Datasets",
-    content: "Benchmark datasets, startup validation evaluation metrics, synthetic multi-agent conversation testbed."
+    content: "Open-source repositories on GitHub: Validator-AI LangGraph system, geospatial semantic search service with pgvector, healthcare medical imaging classifier."
   },
   {
     title: "Reading Notes Hub",
     url: "reading-notes/index.html",
     category: "Notes",
-    content: "Literature reviews and daily research reading notes on Multi-Agent Systems, LLM Reliability, Semantic Search, and Generative Vision."
+    content: "Weekly research reading notes on multi-agent systems, reasoning, and LLM reliability."
   },
   {
-    title: "Reading Note: LangGraph & Stateful Orchestration",
+    title: "Reflexion (Shinn et al., 2023)",
     url: "reading-notes/multi-agent-systems/index.html",
     category: "Reading Notes",
-    content: "Key takeaways on state graph persistence, cyclic agentic workflows, checkpointing in distributed multi-agent systems."
+    content: "Reading note on Reflexion: Language Agents with Verbal Reinforcement Learning (Shinn et al., NeurIPS 2023)."
   },
   {
-    title: "Reading Note: Self-Healing Schemas & Guardrails",
+    title: "Guided Generation (Willard & Louf, 2023)",
     url: "reading-notes/llm-reliability/index.html",
     category: "Reading Notes",
-    content: "Techniques for deterministic schema repair, JSON grammar constraints, and error recovery in production LLM pipelines."
+    content: "Reading note on Efficient Guided Generation for Large Language Models using finite state machine grammars."
   },
   {
-    title: "Contact & Collaboration",
+    title: "Contact",
     url: "contact/index.html",
     category: "Contact",
-    content: "Email alihasnainshah64@gmail.com, LinkedIn, GitHub, prospective research collaborations, graduate study inquiries."
+    content: "Email alihasnainshah64@gmail.com, GitHub aliHasnainme, LinkedIn, Google Scholar, ORCID, prospective graduate studies inquiries."
   }
 ];

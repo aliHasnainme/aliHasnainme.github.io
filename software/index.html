@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Software &amp; Open Source | Ali Hasnain</title>
-    <meta name="description" content="Open-source software, agentic frameworks, and AI repositories developed by Ali Hasnain.">
+    <title>Software | Ali Hasnain</title>
+    <meta name="description" content="Open-source code repositories and software implementations by Ali Hasnain.">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -20,13 +20,18 @@
           <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
             <div class="td-sidebar__inner">
               
-              <div class="td-sidebar__brand d-flex align-items-center justify-content-between">
-                <div>
-                  <a href="../index.html">Ali Hasnain</a>
-                  <div class="td-sidebar__subtitle">AI & Software Engineering Researcher</div>
-                </div>
-                <button class="btn btn-link td-sidebar__toggle d-md-none p-0 text-dark" type="button" id="td-sidebar-toggle" aria-label="Toggle navigation">
-                  <i class="fas fa-bars fa-lg"></i>
+              <div class="td-sidebar__profile">
+                <img src="../assets/images/Profile.jpeg" onerror="this.onerror=null; this.src='../assets/images/profile.svg';" alt="Ali Hasnain" class="profile-img-sidebar">
+              </div>
+
+              <div class="td-sidebar__brand">
+                <a href="../index.html">Ali Hasnain</a>
+                <div class="td-sidebar__subtitle">University of Sahiwal</div>
+              </div>
+
+              <div class="d-md-none text-center mb-3">
+                <button class="btn btn-sm btn-outline-secondary" type="button" id="td-sidebar-toggle">
+                  <i class="fas fa-bars me-1"></i> Navigation Menu
                 </button>
               </div>
 
@@ -35,7 +40,7 @@
                 <input type="search" id="site-search-input" placeholder="Search site... (Ctrl+K)" autocomplete="off">
               </div>
 
-              <nav class="td-sidebar-nav" id="td-section-nav">
+              <nav class="td-sidebar-nav collapse d-md-block" id="td-section-nav">
                 <ul class="td-sidebar-nav__section pe-md-2 ul-0">
                   <li class="td-sidebar-nav__section-title">
                     <ul class="ul-1">
@@ -47,14 +52,14 @@
                       </li>
                       <li>
                         <a href="../bio_and_cv/index.html" class="td-sidebar-link">
-                          <i class="fas fa-id-card"></i>
+                          <i class="fas fa-user"></i>
                           <span>Bio &amp; CV</span>
                         </a>
                       </li>
                       <li>
                         <a href="../research/index.html" class="td-sidebar-link">
                           <i class="fas fa-flask"></i>
-                          <span>Research</span>
+                          <span>Research &amp; Projects</span>
                         </a>
                       </li>
                       <li>
@@ -67,12 +72,6 @@
                         <a href="../software/index.html" class="td-sidebar-link active">
                           <i class="fas fa-code"></i>
                           <span>Software</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="../data/index.html" class="td-sidebar-link">
-                          <i class="fas fa-database"></i>
-                          <span>Datasets</span>
                         </a>
                       </li>
                       <li>
@@ -108,7 +107,7 @@
               </nav>
 
               <div class="td-sidebar__social">
-                <div class="td-sidebar__social-title">Connect &amp; Profiles</div>
+                <div class="td-sidebar__social-title">Links</div>
                 <div class="td-sidebar__social-links">
                   <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener" class="social-badge">
                     <i class="ai ai-google-scholar"></i> Scholar
@@ -140,88 +139,70 @@
               <span>Software</span>
             </nav>
 
-            <h1>Software &amp; Tools</h1>
+            <h1>Software</h1>
 
-            <div class="lead mb-4">
-              <p>
-                Open-source software, agent frameworks, microservices, and reproducible research toolkits. All code is available on <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">GitHub</a> under permissive open-source licenses.
-              </p>
-            </div>
+            <p class="text-muted small">
+              Code repositories and implementations available on <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">GitHub</a>.
+            </p>
 
-            <!-- SOFTWARE ITEM 1 -->
-            <div class="pub-item" id="tool-validator-core">
+            <div class="pub-item">
               <div class="pub-title">
-                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">validator-core: Stateful LangGraph Engine with PostgreSQL Checkpointing</a>
+                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">Validator-AI: Multi-Agent System with Checkpointing</a>
               </div>
-              <div class="text-muted small mb-2">
-                <span class="badge bg-primary">Python</span>
-                <span class="badge bg-secondary">LangGraph</span>
-                <span class="badge bg-secondary">PostgreSQL</span>
-                <span class="badge bg-secondary">Asyncio</span>
+              <div class="text-muted small mb-1">
+                Python, LangGraph, PostgreSQL, Asyncio
               </div>
               <p class="small text-muted mb-2">
-                A modular Python framework implementing stateful, fault-tolerant multi-agent loops. Features a drop-in PostgreSQL state checkpointer allowing long-horizon LLM workflows to survive process interruptions, alongside an automated repair loop for malformed Pydantic payloads.
+                Implementation of a multi-agent system in LangGraph that incorporates PostgreSQL checkpointing to survive dialogue interruptions, alongside an automated repair step for schema violations and asynchronous concurrent execution.
               </p>
               <div class="pub-links">
-                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> GitHub Repository</a>
-                <a href="../research/index.html#validator-ai" class="btn-paper"><i class="fas fa-book"></i> Documentation</a>
+                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> Repository</a>
+                <a href="../research/index.html#validator-ai" class="btn-paper"><i class="fas fa-info-circle"></i> Notes</a>
               </div>
             </div>
 
-            <!-- SOFTWARE ITEM 2 -->
-            <div class="pub-item" id="tool-geo-vector">
+            <div class="pub-item">
               <div class="pub-title">
-                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">geo-vector-service: Hybrid Spatial-Semantic Retrieval API</a>
+                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">Geospatial Semantic Search Service</a>
               </div>
-              <div class="text-muted small mb-2">
-                <span class="badge bg-primary">FastAPI</span>
-                <span class="badge bg-secondary">pgvector</span>
-                <span class="badge bg-secondary">Gemini Embeddings</span>
-                <span class="badge bg-secondary">Docker</span>
+              <div class="text-muted small mb-1">
+                FastAPI, pgvector, Gemini Embeddings, Docker
               </div>
               <p class="small text-muted mb-2">
-                An asynchronous FastAPI microservice combining dense neural semantic search with exact spherical geospatial distance computation using Haversine formulations in PostgreSQL. Allows querying entities matching both conceptual natural language semantics and proximity radius.
+                FastAPI backend service combining natural language semantic search via Gemini embeddings with Haversine distance calculations in PostgreSQL for location-bounded semantic queries.
               </p>
               <div class="pub-links">
-                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> GitHub Repository</a>
+                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> Repository</a>
               </div>
             </div>
 
-            <!-- SOFTWARE ITEM 3 -->
-            <div class="pub-item" id="tool-med-vision">
+            <div class="pub-item">
               <div class="pub-title">
-                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">med-vision-classifier: Diagnostic Classification Suite for Radiology</a>
+                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">Healthcare Medical Imaging Classification</a>
               </div>
-              <div class="text-muted small mb-2">
-                <span class="badge bg-primary">PyTorch</span>
-                <span class="badge bg-secondary">Torchvision</span>
-                <span class="badge bg-secondary">Vision Transformers</span>
-                <span class="badge bg-secondary">Medical Imaging</span>
+              <div class="text-muted small mb-1">
+                PyTorch, Torchvision, Transformers
               </div>
               <p class="small text-muted mb-2">
-                A clean PyTorch pipeline for multi-label radiographic classification on MRI and chest X-ray datasets. Includes preprocessing utilities, adaptive data augmentation, and benchmark evaluation scripts achieving 94% test accuracy.
+                PyTorch training and evaluation scripts for brain tumor MRI localization and chest X-ray disease classification.
               </p>
               <div class="pub-links">
-                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> GitHub Repository</a>
+                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> Repository</a>
               </div>
             </div>
 
-            <!-- SOFTWARE ITEM 4 -->
-            <div class="pub-item" id="tool-doc-extract">
+            <div class="pub-item">
               <div class="pub-title">
-                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">doc-intel-reconciler: Multimodal Invoice &amp; Document Intelligence</a>
+                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">Document Processing &amp; Reconciliation Pipeline</a>
               </div>
-              <div class="text-muted small mb-2">
-                <span class="badge bg-primary">Python</span>
-                <span class="badge bg-secondary">Google Vision AI</span>
-                <span class="badge bg-secondary">Gemini Flash</span>
-                <span class="badge bg-secondary">Pydantic</span>
+              <div class="text-muted small mb-1">
+                Python, Google Vision AI, Gemini API
               </div>
               <p class="small text-muted mb-2">
-                An automated pipeline combining high-precision OCR with multimodal LLMs to extract structured accounting entities from complex PDF layouts and cross-validate against relational records.
+                Invoice entity extraction and verification pipeline matching extracted PDF records against relational database entries.
               </p>
               <div class="pub-links">
-                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> GitHub Repository</a>
+                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> Repository</a>
               </div>
             </div>
 
@@ -237,18 +218,17 @@
 
       <footer class="td-footer row align-items-center justify-content-between mx-0">
         <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0 px-4">
-          &copy; 2026 Ali Hasnain &bull; Modeled after <a href="https://jkk.name" target="_blank" rel="noopener">jkk.name</a>
+          &copy; 2026 Ali Hasnain &bull; University of Sahiwal
         </div>
         <div class="col-12 col-md-6 text-center text-md-end px-4">
-          <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>GitHub</a> &bull;
-          <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener"><i class="ai ai-google-scholar me-1"></i>Scholar</a> &bull;
-          <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener"><i class="ai ai-orcid me-1"></i>ORCID</a>
+          <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">GitHub</a> &bull;
+          <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> &bull;
+          <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener">ORCID</a>
         </div>
       </footer>
 
     </div>
 
-    <!-- SEARCH MODAL -->
     <div class="search-modal-backdrop" id="search-modal-backdrop">
       <div class="search-modal">
         <div class="search-modal-header">

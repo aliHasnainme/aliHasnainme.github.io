@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Research | Ali Hasnain</title>
-    <meta name="description" content="Research projects and technical architectures by Ali Hasnain: Multi-Agent LLMs, Stateful Graph Systems, Reliable AI, and Deep Learning.">
+    <title>Research &amp; Projects | Ali Hasnain</title>
+    <meta name="description" content="Research projects and technical architectures by Ali Hasnain: Multi-agent systems, reliable execution, and deep learning.">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -20,13 +20,18 @@
           <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
             <div class="td-sidebar__inner">
               
-              <div class="td-sidebar__brand d-flex align-items-center justify-content-between">
-                <div>
-                  <a href="../index.html">Ali Hasnain</a>
-                  <div class="td-sidebar__subtitle">AI & Software Engineering Researcher</div>
-                </div>
-                <button class="btn btn-link td-sidebar__toggle d-md-none p-0 text-dark" type="button" id="td-sidebar-toggle" aria-label="Toggle navigation">
-                  <i class="fas fa-bars fa-lg"></i>
+              <div class="td-sidebar__profile">
+                <img src="../assets/images/Profile.jpeg" onerror="this.onerror=null; this.src='../assets/images/profile.svg';" alt="Ali Hasnain" class="profile-img-sidebar">
+              </div>
+
+              <div class="td-sidebar__brand">
+                <a href="../index.html">Ali Hasnain</a>
+                <div class="td-sidebar__subtitle">University of Sahiwal</div>
+              </div>
+
+              <div class="d-md-none text-center mb-3">
+                <button class="btn btn-sm btn-outline-secondary" type="button" id="td-sidebar-toggle">
+                  <i class="fas fa-bars me-1"></i> Navigation Menu
                 </button>
               </div>
 
@@ -35,7 +40,7 @@
                 <input type="search" id="site-search-input" placeholder="Search site... (Ctrl+K)" autocomplete="off">
               </div>
 
-              <nav class="td-sidebar-nav" id="td-section-nav">
+              <nav class="td-sidebar-nav collapse d-md-block" id="td-section-nav">
                 <ul class="td-sidebar-nav__section pe-md-2 ul-0">
                   <li class="td-sidebar-nav__section-title">
                     <ul class="ul-1">
@@ -47,14 +52,14 @@
                       </li>
                       <li>
                         <a href="../bio_and_cv/index.html" class="td-sidebar-link">
-                          <i class="fas fa-id-card"></i>
+                          <i class="fas fa-user"></i>
                           <span>Bio &amp; CV</span>
                         </a>
                       </li>
                       <li>
                         <a href="../research/index.html" class="td-sidebar-link active">
                           <i class="fas fa-flask"></i>
-                          <span>Research</span>
+                          <span>Research &amp; Projects</span>
                         </a>
                       </li>
                       <li>
@@ -67,12 +72,6 @@
                         <a href="../software/index.html" class="td-sidebar-link">
                           <i class="fas fa-code"></i>
                           <span>Software</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="../data/index.html" class="td-sidebar-link">
-                          <i class="fas fa-database"></i>
-                          <span>Datasets</span>
                         </a>
                       </li>
                       <li>
@@ -108,7 +107,7 @@
               </nav>
 
               <div class="td-sidebar__social">
-                <div class="td-sidebar__social-title">Connect &amp; Profiles</div>
+                <div class="td-sidebar__social-title">Links</div>
                 <div class="td-sidebar__social-links">
                   <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener" class="social-badge">
                     <i class="ai ai-google-scholar"></i> Scholar
@@ -137,93 +136,78 @@
             <nav class="td-breadcrumbs" aria-label="breadcrumb">
               <a href="../index.html">Home</a>
               <span class="separator">/</span>
-              <span>Research</span>
+              <span>Research &amp; Projects</span>
             </nav>
 
-            <h1>Research Overview</h1>
-
-            <div class="lead mb-4">
-              <p>
-                My research program addresses a foundational bottleneck in applied artificial intelligence: <strong>How do we engineer autonomous, multi-agent AI systems that execute reliably without degrading, losing state, or producing malformed outputs in production?</strong>
-              </p>
-            </div>
-
-            <!-- THEMATIC PILLARS -->
-            <h2 id="research-pillars">Core Research Pillars</h2>
-            <div class="row g-3 mb-4">
-              <div class="col-md-4">
-                <div class="card p-3 h-100 border-start border-primary border-4 bg-light">
-                  <h6 class="fw-bold text-primary mb-1"><i class="fas fa-project-diagram me-2"></i>Stateful Orchestration</h6>
-                  <p class="small text-muted mb-0">Graph-based execution cycles, persistent checkpoints, and asynchronous scheduling to eliminate conversational context loss.</p>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card p-3 h-100 border-start border-warning border-4 bg-light">
-                  <h6 class="fw-bold text-dark mb-1"><i class="fas fa-shield-alt me-2"></i>Self-Healing Reliability</h6>
-                  <p class="small text-muted mb-0">Deterministic schema enforcement, automatic LLM repair loops, and grammar-constrained JSON generation.</p>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card p-3 h-100 border-start border-success border-4 bg-light">
-                  <h6 class="fw-bold text-success mb-1"><i class="fas fa-cubes me-2"></i>Multimodal Intelligence</h6>
-                  <p class="small text-muted mb-0">Generative text-to-3D pipelines and dense vector retrieval using Gemini embeddings + pgvector.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- FLAGSHIP: VALIDATOR-AI -->
-            <h2 id="validator-ai">Validator-AI: Stateful Multi-Agent System</h2>
-            <div class="badge-prep mb-3"><i class="fas fa-star me-1"></i> Featured Research Project &bull; 2025–2026</div>
+            <h1>Research &amp; Projects</h1>
 
             <p>
-              Traditional conversational LLM architectures rely on linear, stateless request-response interaction loops. In complex multi-stage tasks—such as automated startup feasibility analysis—stateless interactions suffer from <strong>severe context collapse</strong>, erratic intermediate tool calls, and high vulnerability to transient system interruptions.
+              My primary research focuses on making multi-agent LLM systems reliable and practical. In complex tasks requiring many conversational turns or asynchronous steps, models often suffer from lost state, erratic execution, and malformed outputs. Below are details of the projects I have developed to address these problems.
             </p>
 
-            <h3 id="validator-architecture">System Architecture &amp; State Persistence</h3>
+            <!-- VALIDATOR-AI -->
+            <h2 id="validator-ai">Validator-AI: A Stateful Multi-Agent System for Automated Startup Validation</h2>
+            <div class="text-muted small mb-3">
+              <em>Individual Project &bull; University of Sahiwal (2025&ndash;2026)</em>
+            </div>
+
             <p>
-              To solve this, <strong>Validator-AI</strong> was architected as a cyclic directed state graph using <strong>LangGraph</strong> backed by a durable <strong>PostgreSQL state checkpointer</strong>. Instead of transmitting raw conversation histories across prompts, execution state is treated as a versioned, durable database record:
+              This project investigates founder assistance during the startup validation process. Initially, the system was implemented as a stateless request-response workflow. In multi-turn evaluations, this caused severe context loss, repetitive questioning, and inability to handle process disruptions.
+            </p>
+
+            <h3 id="validator-checkpointer">State Persistence via PostgreSQL Checkpointing</h3>
+            <p>
+              To solve context loss, I redesigned the pipeline into a state graph using <strong>LangGraph</strong> backed by a PostgreSQL state checkpointer. Each decision node updates a shared state object that is committed to the database after execution. If an API rate limit, network disruption, or server restart occurs, the workflow can resume from its last valid checkpoint without restarting from the beginning.
+            </p>
+
+            <h3 id="validator-repair">Self-Healing Schema Validation</h3>
+            <p>
+              When agents output structured recommendations, downstream modules require strict JSON schema conformance. To prevent pipeline breaks:
             </p>
             <ul>
-              <li><strong>Fault-Tolerant Resumption:</strong> If a network failure, rate limit, or node timeout occurs midway through a 7-step analysis, the workflow resumes exactly from the last committed checkpoint rather than re-running from scratch.</li>
-              <li><strong>Asynchronous Acceleration:</strong> Independent verification agents (e.g., market size analyzer, competitive intelligence agent, unit-economic validator) were migrated from sequential execution to <code>asyncio.gather</code>, shrinking total wall-clock duration from <strong>~20 minutes to under 3 minutes</strong>.</li>
+              <li>Built an automatic self-healing step that catches malformed outputs (missing fields, syntax errors, type mismatches).</li>
+              <li>Re-routes the malformed payload with error context to an automated repair routine before passing state to subsequent nodes.</li>
+              <li>In test evaluations, this caught 100% of the malformed output error patterns defined in the test suite.</li>
             </ul>
 
-            <h3 id="validator-self-healing">Self-Healing Schema Enforcement</h3>
+            <h3 id="validator-performance">Concurrency &amp; Latency Improvements</h3>
+            <ul>
+              <li><strong>Asynchronous Scheduling:</strong> Parallelized independent evaluation tasks (e.g., market sizing, competitor analysis, unit economics) using Python's <code>asyncio.gather</code>, reducing total run time from ~20 minutes to less than 3 minutes.</li>
+              <li><strong>Load Testing:</strong> Developed test suites using Pytest, Playwright, and Coverage.py, and ran load tests simulating up to 100 concurrent users to verify state stability under load.</li>
+            </ul>
+
             <p>
-              A persistent vulnerability in LLM agent pipelines is schema malformation (missing JSON keys, malformed markdown fences, type violations). Validator-AI implements an automated <strong>self-healing step</strong>:
+              <a href="../pubs/index.html" class="btn-paper"><i class="fas fa-file-alt"></i> Working Paper Details</a>
+              <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> Repository</a>
             </p>
-            <div class="callout callout-warning">
-              <strong>Self-Healing Mechanism:</strong> When a downstream node receives an output violating the expected Pydantic schema, the payload is caught by a deterministic validation filter and re-routed to a specialized repair agent along with the validation error traceback. In comprehensive unit tests, this mechanism caught and repaired <strong>100% of defined schema error patterns</strong> without throwing uncaught exceptions.
+
+            <!-- HEALTHCARE -->
+            <h2 id="healthcare">Smart Healthcare Diagnosis System</h2>
+            <div class="text-muted small mb-2">
+              <em>Personal Project &bull; PyTorch, Transformers</em>
             </div>
-
-            <h3 id="validator-evaluation">Stress Testing &amp; Concurrency Benchmarking</h3>
             <p>
-              The system was evaluated through an extensive testing suite (Pytest, Playwright, Coverage.py) and load tested against up to <strong>100 concurrent simulated founder sessions</strong>, documenting specific failure modes and resilience characteristics.
-            </p>
-            <p>
-              <a href="../pubs/index.html" class="btn btn-sm btn-outline-primary me-2"><i class="fas fa-file-alt me-1"></i> Read Working Paper Status</a>
-              <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn btn-sm btn-outline-dark"><i class="fab fa-github me-1"></i> View Repository</a>
-            </p>
-
-            <!-- SMART HEALTHCARE -->
-            <h2 id="healthcare-diagnosis">Smart Healthcare Diagnosis System</h2>
-            <p>
-              A deep learning clinical screening pipeline built with <strong>PyTorch</strong> and modern convolutional/transformer architectures for automated radiological assessment:
+              Trained deep learning classification models for radiographic analysis:
             </p>
             <ul>
-              <li><strong>MRI Brain Tumor Detection:</strong> Trained on multi-sequence magnetic resonance imagery with targeted contrast normalization to localize intracranial neoplasms.</li>
-              <li><strong>Chest Radiography Pathology:</strong> Multi-class chest X-ray classification for pulmonary anomalies (pneumonia, infiltration, effusion).</li>
-              <li><strong>Benchmark Results:</strong> Achieved an aggregate <strong>94% classification accuracy</strong> on the held-out evaluation test split with high sensitivity on critical anomaly detection.</li>
+              <li>MRI Brain Tumor Detection: Localizing intracranial lesions using preprocessed magnetic resonance imaging sequences.</li>
+              <li>Chest X-Ray Pathology: Multi-class classification of pulmonary conditions on radiographic images.</li>
+              <li>Achieved <strong>94% classification accuracy</strong> on the held-out test split.</li>
             </ul>
 
             <!-- MULTIMODAL 3D -->
-            <h2 id="multimodal-3d">Text-to-3D Generation &amp; Geospatial Semantic Search</h2>
+            <h2 id="text-to-3d">Text-to-3D Generation &amp; Geospatial Search</h2>
+            <div class="text-muted small mb-2">
+              <em>Engineering Role &bull; AI 3D Scanning Solution (2025&ndash;Present)</em>
+            </div>
             <p>
-              Developed during industry engineering work at <em>AI 3D Scanning Solution</em>, this pipeline addresses high-dimensional multimodal asset creation and localized semantic discovery:
+              Developed production AI pipelines combining generative modeling and spatial retrieval:
             </p>
             <ul>
-              <li><strong>Generative 3D Asset Synthesis:</strong> Integrated open-source diffusion models that convert natural language descriptions and multi-angle 2D reference images into textured 3D mesh representations.</li>
-              <li><strong>Hybrid Spatial-Semantic Search:</strong> Engineered an async FastAPI microservice that computes dense embeddings via Google Gemini, stores vectors inside PostgreSQL <code>pgvector</code>, and calculates spherical distance filters using the Haversine formula to return semantically matched nearby entities in real time.</li>
+              <li><strong>3D Generation:</strong> Pipeline using open-source models to generate textured 3D assets from an input image prompt and reference views.</li>
+              <li><strong>Conversational RAG:</strong> Grounded user dialogue assistant using LangChain and LangGraph for context retrieval.</li>
+              <li><strong>Spatial Semantic Search:</strong> Integrated Google Gemini embeddings stored in PostgreSQL <code>pgvector</code>, filtering search results using the Haversine formula to return nearby items matching semantic queries.</li>
+              <li><strong>Backend Service:</strong> Asynchronous FastAPI service with SQLAlchemy ORM and containerized Docker orchestration.</li>
             </ul>
 
           </main>
@@ -238,18 +222,17 @@
 
       <footer class="td-footer row align-items-center justify-content-between mx-0">
         <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0 px-4">
-          &copy; 2026 Ali Hasnain &bull; Modeled after <a href="https://jkk.name" target="_blank" rel="noopener">jkk.name</a>
+          &copy; 2026 Ali Hasnain &bull; University of Sahiwal
         </div>
         <div class="col-12 col-md-6 text-center text-md-end px-4">
-          <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>GitHub</a> &bull;
-          <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener"><i class="ai ai-google-scholar me-1"></i>Scholar</a> &bull;
-          <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener"><i class="ai ai-orcid me-1"></i>ORCID</a>
+          <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">GitHub</a> &bull;
+          <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> &bull;
+          <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener">ORCID</a>
         </div>
       </footer>
 
     </div>
 
-    <!-- SEARCH MODAL -->
     <div class="search-modal-backdrop" id="search-modal-backdrop">
       <div class="search-modal">
         <div class="search-modal-header">

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Bio &amp; CV | Ali Hasnain</title>
-    <meta name="description" content="Biography and Curriculum Vitae for Ali Hasnain - Academic background, professional experience, research, and technical certifications.">
+    <meta name="description" content="Biography and Curriculum Vitae for Ali Hasnain - Education, research experience, professional roles, and technical skills.">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -20,13 +20,18 @@
           <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
             <div class="td-sidebar__inner">
               
-              <div class="td-sidebar__brand d-flex align-items-center justify-content-between">
-                <div>
-                  <a href="../index.html">Ali Hasnain</a>
-                  <div class="td-sidebar__subtitle">AI & Software Engineering Researcher</div>
-                </div>
-                <button class="btn btn-link td-sidebar__toggle d-md-none p-0 text-dark" type="button" id="td-sidebar-toggle" aria-label="Toggle navigation">
-                  <i class="fas fa-bars fa-lg"></i>
+              <div class="td-sidebar__profile">
+                <img src="../assets/images/Profile.jpeg" onerror="this.onerror=null; this.src='../assets/images/profile.svg';" alt="Ali Hasnain" class="profile-img-sidebar">
+              </div>
+
+              <div class="td-sidebar__brand">
+                <a href="../index.html">Ali Hasnain</a>
+                <div class="td-sidebar__subtitle">University of Sahiwal</div>
+              </div>
+
+              <div class="d-md-none text-center mb-3">
+                <button class="btn btn-sm btn-outline-secondary" type="button" id="td-sidebar-toggle">
+                  <i class="fas fa-bars me-1"></i> Navigation Menu
                 </button>
               </div>
 
@@ -35,7 +40,7 @@
                 <input type="search" id="site-search-input" placeholder="Search site... (Ctrl+K)" autocomplete="off">
               </div>
 
-              <nav class="td-sidebar-nav" id="td-section-nav">
+              <nav class="td-sidebar-nav collapse d-md-block" id="td-section-nav">
                 <ul class="td-sidebar-nav__section pe-md-2 ul-0">
                   <li class="td-sidebar-nav__section-title">
                     <ul class="ul-1">
@@ -47,14 +52,14 @@
                       </li>
                       <li>
                         <a href="../bio_and_cv/index.html" class="td-sidebar-link active">
-                          <i class="fas fa-id-card"></i>
+                          <i class="fas fa-user"></i>
                           <span>Bio &amp; CV</span>
                         </a>
                       </li>
                       <li>
                         <a href="../research/index.html" class="td-sidebar-link">
                           <i class="fas fa-flask"></i>
-                          <span>Research</span>
+                          <span>Research &amp; Projects</span>
                         </a>
                       </li>
                       <li>
@@ -67,12 +72,6 @@
                         <a href="../software/index.html" class="td-sidebar-link">
                           <i class="fas fa-code"></i>
                           <span>Software</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="../data/index.html" class="td-sidebar-link">
-                          <i class="fas fa-database"></i>
-                          <span>Datasets</span>
                         </a>
                       </li>
                       <li>
@@ -108,7 +107,7 @@
               </nav>
 
               <div class="td-sidebar__social">
-                <div class="td-sidebar__social-title">Connect &amp; Profiles</div>
+                <div class="td-sidebar__social-title">Links</div>
                 <div class="td-sidebar__social-links">
                   <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener" class="social-badge">
                     <i class="ai ai-google-scholar"></i> Scholar
@@ -142,112 +141,100 @@
 
             <h1>Bio &amp; Curriculum Vitae</h1>
 
-            <!-- SHORT BIO -->
-            <h2 id="short-bio">Short Biography</h2>
-            <div class="card p-3 mb-4 bg-light border-0">
-              <p class="mb-0">
-                <strong>Ali Hasnain</strong> is a software engineering researcher and AI engineer specializing in multi-agent LLM systems, generative AI, and reliable machine learning architectures. He earned his BS in Software Engineering from the University of Sahiwal, Pakistan (CGPA 3.63/4.00). His research investigates fault-tolerant agentic workflows, state persistence in cyclic graph systems, and automated schema repair in generative language models. Alongside research, he has built production-grade AI pipelines involving text-to-3D generation, semantic geospatial retrieval, and asynchronous microservices.
-              </p>
-            </div>
+            <!-- BIO -->
+            <h2 id="bio">Biography</h2>
+            <p>
+              Ali Hasnain is a software engineering graduate from the University of Sahiwal, Pakistan (BS Software Engineering, CGPA 3.63/4.00). His work centers on machine learning and software systems, with an emphasis on stateful multi-agent LLM systems, generative models, and robust error recovery in production AI applications. He has held developer positions at AI 3D Scanning Solution and Medtronix Systems, implementing RAG systems, 3D asset generation workflows, geospatial vector search, and asynchronous backend services in Python and FastAPI.
+            </p>
 
             <!-- EDUCATION -->
             <h2 id="education">Education</h2>
-            <div class="mb-4">
+            <div class="mb-3">
               <div class="d-flex justify-content-between align-items-baseline">
-                <h4 class="mb-1 text-primary">Bachelor of Science in Software Engineering (BS SE)</h4>
+                <strong>BS in Software Engineering</strong>
                 <span class="text-muted small">2022 &ndash; 2026</span>
               </div>
-              <div class="text-dark fw-semibold">University of Sahiwal &bull; Sahiwal, Punjab, Pakistan</div>
-              <ul class="mt-2 text-muted small">
-                <li><strong>Cumulative GPA:</strong> 3.63 / 4.00 (Total Marks: 3491 / 4600 &bull; 75.89%)</li>
-                <li><strong>Core Coursework:</strong> Operating Systems, Data Structures &amp; Algorithms, Database Systems, Computer Networks, Software Architecture &amp; Design, Big Data Analytics, Probability &amp; Statistics, Human-Computer Interaction, Formal Methods in Software Engineering, Operations Research.</li>
+              <div class="text-muted small">University of Sahiwal, Pakistan</div>
+              <ul class="small mt-1 text-muted">
+                <li>CGPA: <strong>3.63 / 4.00</strong> (Marks: 3491 / 4600 &bull; 75.89%)</li>
+                <li>Relevant Coursework: Data Structures &amp; Algorithms, Operating Systems, Database Systems, Computer Networks, Software Architecture, Probability &amp; Statistics, Big Data Analytics, Operations Research.</li>
               </ul>
             </div>
 
             <!-- RESEARCH EXPERIENCE -->
-            <h2 id="research-experience">Research Experience</h2>
-            <div class="mb-4">
+            <h2 id="research">Research Experience</h2>
+            <div class="mb-3">
               <div class="d-flex justify-content-between align-items-baseline">
-                <h4 class="mb-1 text-primary">Lead Researcher &bull; Validator-AI</h4>
+                <strong>Validator-AI: A Stateful Multi-Agent System for Automated Startup Validation</strong>
                 <span class="text-muted small">2025 &ndash; 2026</span>
               </div>
-              <div class="text-dark fw-semibold">University of Sahiwal &bull; Supervised Research Project</div>
-              <p class="small text-muted mt-1"><em>A Stateful Multi-Agent System for Automated Decision &amp; Startup Validation</em></p>
-              <ul class="small">
-                <li>Designed a cyclic, stateful multi-agent system utilizing <strong>LangGraph</strong> to overcome severe context-loss and hallucinations observed in conventional stateless prompting.</li>
-                <li>Architected a <strong>PostgreSQL-backed state checkpointer</strong> enabling interrupted multi-agent workflows to persist state across distributed cycles and recover seamlessly.</li>
-                <li>Implemented an automated <strong>self-healing schema repair loop</strong> that catches malformed structured outputs, successfully neutralizing 100% of defined schema error patterns in unit testing.</li>
-                <li>Optimized module parallelization using Python's <code>asyncio.gather</code>, decreasing full validation suite execution latency from ~20 minutes to under 3 minutes.</li>
-                <li>Subjected the system to concurrent load tests (Pytest, Playwright, Coverage.py) with up to 100 simulated concurrent actors to stress-test persistence stability.</li>
+              <div class="text-muted small">Individual project, University of Sahiwal</div>
+              <ul class="small mt-1">
+                <li>Created a multi-agent LLM system (LangGraph) for founder assistance in startup validation to address context loss in extended dialogues.</li>
+                <li>Switched from a stateless request-response design to a PostgreSQL-backed state checkpointer so the workflow can survive interruptions and resume from where it left off.</li>
+                <li>Built a self-healing step that catches and repairs cases where the LLM output does not conform to the expected schema—catching 100% of the error patterns defined in the unit tests.</li>
+                <li>Moved analysis modules to an asynchronous architecture (<code>asyncio.gather</code>), reducing run time from about 20 minutes to less than 3 minutes.</li>
+                <li>Wrote unit, integration, and load tests (Pytest, Playwright, Coverage.py) and ran load tests up to 100 concurrent users.</li>
               </ul>
             </div>
 
             <!-- PROFESSIONAL EXPERIENCE -->
-            <h2 id="professional-experience">Professional Experience</h2>
+            <h2 id="experience">Professional Experience</h2>
             
-            <div class="mb-4">
+            <div class="mb-3">
               <div class="d-flex justify-content-between align-items-baseline">
-                <h4 class="mb-1 text-primary">Python Developer &bull; AI 3D Scanning Solution</h4>
+                <strong>Python Developer &mdash; AI 3D Scanning Solution</strong>
                 <span class="text-muted small">April 2025 &ndash; Present</span>
               </div>
-              <div class="text-dark fw-semibold">Sahiwal, Pakistan</div>
-              <ul class="small mt-2">
-                <li>Engineered an automated text-to-3D asset generation pipeline integrating open-source generative 3D diffusion models with multimodal prompt conditioning.</li>
-                <li>Developed a conversational RAG system with LangChain and LangGraph for grounded, context-aware user interactions.</li>
-                <li>Built a high-performance semantic search service combining Google Gemini embeddings stored in PostgreSQL <code>pgvector</code> with Haversine spherical distance filtering for location-aware semantic queries.</li>
-                <li>Integrated Google Gemini Vision API for automatic visual categorization and Gemini Flash for low-latency product copy generation.</li>
-                <li>Architected an asynchronous FastAPI backend with SQLAlchemy ORM and containerized Docker deployment managing end-to-end vector ingestion and query serving.</li>
+              <div class="text-muted small">Sahiwal, Pakistan</div>
+              <ul class="small mt-1">
+                <li>Built a text-to-3D generation pipeline using open-source models to create 3D assets from an image prompt and reference images.</li>
+                <li>Added a RAG layer to a conversational AI system using LangChain and LangGraph to provide context-aware and grounded responses.</li>
+                <li>Built a semantic product search system using Gemini embeddings stored in pgvector along with Haversine-based geospatial filtering to return relevant nearby results from natural language queries.</li>
+                <li>Integrated Gemini Vision for automatic categorization of product images and Gemini Flash for AI-generated product descriptions.</li>
+                <li>Designed an asynchronous FastAPI backend with SQLAlchemy ORM and Docker orchestration handling ingestion, vector storage, and retrieval.</li>
               </ul>
             </div>
 
-            <div class="mb-4">
+            <div class="mb-3">
               <div class="d-flex justify-content-between align-items-baseline">
-                <h4 class="mb-1 text-primary">Python Developer &bull; Medtronix Systems</h4>
+                <strong>Python Developer &mdash; Medtronix Systems</strong>
                 <span class="text-muted small">September 2023 &ndash; April 2025</span>
               </div>
-              <div class="text-dark fw-semibold">Sahiwal, Pakistan</div>
-              <ul class="small mt-2">
-                <li>Constructed asynchronous FastAPI backend services executing concurrent business automation workflows with minimal response latency.</li>
-                <li>Engineered an intelligent document processing pipeline utilizing Google Vision AI and Gemini to extract structured entities from complex PDF invoices and reconcile discrepancies against vendor databases.</li>
-                <li>Programmed social media and advertising automation systems communicating via Meta Graph API and Meta Ads Manager for programmatic campaign orchestration.</li>
+              <div class="text-muted small">Sahiwal, Pakistan</div>
+              <ul class="small mt-1">
+                <li>Built FastAPI backend services running automation pipelines asynchronously to handle concurrency with low response times.</li>
+                <li>Built a document processing pipeline using Google Vision AI and Gemini to extract structured fields from PDF invoices and match against vendor records.</li>
+                <li>Developed social media and advertising automation systems integrating with Meta Graph API and Meta Ads Manager.</li>
               </ul>
             </div>
 
+            <!-- OTHER PROJECTS -->
+            <h2 id="projects">Other Technical Projects</h2>
+            <ul class="small">
+              <li class="mb-2">
+                <strong>Smart Healthcare Diagnosis System:</strong> Trained deep learning models (PyTorch, Transformers) for MRI brain tumor detection and chest X-ray classification, achieving 94% accuracy on the test set.
+              </li>
+              <li class="mb-2">
+                <strong>AI Interior &amp; Exterior Design System:</strong> Built generation pipelines using Stable Diffusion and LLMs for home design variations with prompt consistency.
+              </li>
+              <li class="mb-2">
+                <strong>LLM-Based Intelligent Chatbot:</strong> Context-aware chatbot using Google Gemini API integrated with Firebase Firestore for session persistence.
+              </li>
+            </ul>
+
             <!-- TECHNICAL SKILLS -->
-            <h2 id="technical-skills">Technical Skills</h2>
-            <div class="table-responsive">
-              <table class="table table-bordered table-sm small">
-                <tbody>
-                  <tr>
-                    <td class="fw-bold bg-light" style="width: 25%;">Languages &amp; Core</td>
-                    <td>Python, FastAPI, SQL (PostgreSQL), Dart / Flutter</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-bold bg-light">AI, ML &amp; Frameworks</td>
-                    <td>PyTorch, TensorFlow, Keras, Scikit-learn, Transformers (Hugging Face)</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-bold bg-light">Agents &amp; LLM Systems</td>
-                    <td>LangGraph, LangChain, Multi-Agent Orchestration, RAG, Structured Output Enforcement, Prompt Engineering</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-bold bg-light">Vector &amp; Retrieval</td>
-                    <td>pgvector, Dense Embeddings (Gemini Embeddings), Haversine Geospatial Search, Semantic Re-ranking</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-bold bg-light">Computer Vision &amp; 3D</td>
-                    <td>Image Classification, Object Detection, OCR, Google Vision AI, Stable Diffusion, Text-to-3D pipelines</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-bold bg-light">Infrastructure &amp; DevOps</td>
-                    <td>Docker, Git &amp; GitHub, Linux (Bash), Google Cloud Platform (GCP), PostgreSQL, Firebase Firestore</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <h2 id="skills">Technical Skills</h2>
+            <ul class="small">
+              <li><strong>Languages &amp; Frameworks:</strong> Python, FastAPI, PyTorch, TensorFlow, Keras, Scikit-learn, Flutter, SQL.</li>
+              <li><strong>AI &amp; LLMs:</strong> LangGraph, LangChain, Transformers, RAG, Fine-tuning, Prompt Engineering.</li>
+              <li><strong>Vector &amp; Search:</strong> pgvector, Semantic Search, Gemini Embeddings, Haversine Geospatial Filtering.</li>
+              <li><strong>Computer Vision &amp; NLP:</strong> Image Classification, Object Detection, OCR, Google Vision AI, NER, Stable Diffusion.</li>
+              <li><strong>Tools &amp; Infrastructure:</strong> Docker, Git, Linux, Google Cloud Platform, PostgreSQL, Firebase.</li>
+            </ul>
 
             <!-- CERTIFICATIONS -->
-            <h2 id="certifications">Certifications &amp; Training</h2>
+            <h2 id="certifications">Certifications</h2>
             <ul class="small">
               <li><strong>Advanced Learning Algorithms</strong> &mdash; DeepLearning.AI (Coursera), Oct 2024</li>
               <li><strong>Supervised Machine Learning: Regression and Classification</strong> &mdash; DeepLearning.AI, Sep 2024</li>
@@ -258,19 +245,14 @@
 
             <!-- LANGUAGES -->
             <h2 id="languages">Languages</h2>
-            <ul class="small mb-4">
-              <li><strong>English:</strong> Professional Working Proficiency (PTE Academic in progress)</li>
-              <li><strong>Urdu:</strong> Native / Bilingual Proficiency</li>
+            <ul class="small">
+              <li><strong>English:</strong> Professional proficiency (PTE Academic in progress)</li>
+              <li><strong>Urdu:</strong> Native</li>
             </ul>
-
-            <div class="callout callout-success">
-              <strong>Looking for a PDF Copy?</strong>
-              A formatted academic CV is available upon request or via <a href="../contact/index.html">contact inquiry</a>.
-            </div>
 
           </main>
 
-          <!-- RIGHT SIDEBAR (ToC) -->
+          <!-- TOC -->
           <aside class="d-none d-xl-block col-xl-2 td-toc d-print-none">
             <div id="td-toc-menu"></div>
           </aside>
@@ -280,18 +262,17 @@
 
       <footer class="td-footer row align-items-center justify-content-between mx-0">
         <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0 px-4">
-          &copy; 2026 Ali Hasnain &bull; Modeled after <a href="https://jkk.name" target="_blank" rel="noopener">jkk.name</a>
+          &copy; 2026 Ali Hasnain &bull; University of Sahiwal
         </div>
         <div class="col-12 col-md-6 text-center text-md-end px-4">
-          <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>GitHub</a> &bull;
-          <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener"><i class="ai ai-google-scholar me-1"></i>Scholar</a> &bull;
-          <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener"><i class="ai ai-orcid me-1"></i>ORCID</a>
+          <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">GitHub</a> &bull;
+          <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> &bull;
+          <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener">ORCID</a>
         </div>
       </footer>
 
     </div>
 
-    <!-- SEARCH MODAL -->
     <div class="search-modal-backdrop" id="search-modal-backdrop">
       <div class="search-modal">
         <div class="search-modal-header">
