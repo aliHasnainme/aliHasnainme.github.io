@@ -13,16 +13,16 @@ const searchIndex = [
     content: "Academic CV, education at University of Sahiwal CGPA 3.63, Python developer at AI 3D Scanning Solution and Medtronix Systems, DeepLearning.AI certs, technical skills in PyTorch, LangGraph, pgvector."
   },
   {
-    title: "Validator-AI",
+    title: "Validator AI (Final Year Project)",
     url: "research/index.html",
-    category: "Research",
-    content: "Validator-AI: A stateful multi-agent system for automated startup validation using LangGraph, PostgreSQL checkpointer, self-healing schema repair, async execution cutting runtime from 20m to 3m."
+    category: "Projects",
+    content: "Validator AI: Multi-Agent Startup Validation Platform. Undergraduate capstone project and thesis at University of Sahiwal using LangGraph, PostgreSQL checkpointer, FastAPI, React, and Docker."
   },
   {
-    title: "Publications & Working Papers",
+    title: "Publications & Academic Research",
     url: "pubs/index.html",
     category: "Publications",
-    content: "Working papers and manuscripts in preparation. Stateful multi-agent startup validation, schema drift mitigation via deterministic error feedback."
+    content: "Academic research transition status. Preparing for graduate studies (MS / PhD) in AI and multi-agent systems. Currently no prior publications."
   },
   {
     title: "Software & Repositories",

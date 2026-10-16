@@ -146,39 +146,70 @@
             </p>
 
             <!-- VALIDATOR-AI -->
-            <h2 id="validator-ai">Validator-AI: A Stateful Multi-Agent System for Automated Startup Validation</h2>
+            <h2 id="validator-ai">Validator AI: Multi-Agent Startup Validation Platform</h2>
             <div class="text-muted small mb-3">
-              <em>Individual Project &bull; University of Sahiwal (2025&ndash;2026)</em>
+              <em>Bachelor's Final Year Project (FYP) &bull; University of Sahiwal (2025&ndash;2026)</em> &bull;
+              <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>aliHasnainme/validator-ai</a>
             </div>
 
             <p>
-              This project investigates founder assistance during the startup validation process. Initially, the system was implemented as a stateless request-response workflow. In multi-turn evaluations, this caused severe context loss, repetitive questioning, and inability to handle process disruptions.
+              <strong>Validator AI</strong> was my undergraduate capstone project and bachelor's thesis. It is an end-to-end autonomous multi-agent platform designed to interview startup founders, conduct automated real-time web research, execute deep strategic analysis across up to 10 specialized dimensions, and synthesize investor-grade reports with viability scoring.
             </p>
 
-            <h3 id="validator-checkpointer">State Persistence via PostgreSQL Checkpointing</h3>
-            <p>
-              To solve context loss, I redesigned the pipeline into a state graph using <strong>LangGraph</strong> backed by a PostgreSQL state checkpointer. Each decision node updates a shared state object that is committed to the database after execution. If an API rate limit, network disruption, or server restart occurs, the workflow can resume from its last valid checkpoint without restarting from the beginning.
-            </p>
+            <h3 id="validator-pipeline">The 6-Stage Multi-Agent Pipeline</h3>
+            <ol class="small">
+              <li><strong>Interview Phase:</strong> An adaptive interviewer agent asks 1&ndash;5 targeted clarifying questions to understand the founder's thesis.</li>
+              <li><strong>Research Phase:</strong> Automated web research via the Tavily API gathers live market data, trends, and existing competitor footprints.</li>
+              <li><strong>Parallel Analysis:</strong> Concurrent execution of up to 10 specialized analysis modules:
+                <ul>
+                  <li>Market Analysis &bull; Financial Projections &bull; Tech Stack Architecture &bull; Competitor Landscape</li>
+                  <li>Business Model Canvas (BMC) &bull; Regulatory Compliance &bull; Go-to-Market (GTM) Strategy</li>
+                  <li>Risk Analysis &bull; Product Roadmap &bull; Funding Strategy</li>
+                </ul>
+              </li>
+              <li><strong>Compilation:</strong> A specialized Compiler agent cross-examines outputs across all modules to catch and reconcile contradictions (e.g. market assumptions vs. financial projections).</li>
+              <li><strong>Quality Assurance:</strong> Consistency cascades detect and auto-correct cross-module discrepancies.</li>
+              <li><strong>Delivery:</strong> Investor-grade HTML and JSON reports with 5-dimension and 8-dimension viability scoring and actionable Go/No-Go recommendations.</li>
+            </ol>
 
-            <h3 id="validator-repair">Self-Healing Schema Validation</h3>
-            <p>
-              When agents output structured recommendations, downstream modules require strict JSON schema conformance. To prevent pipeline breaks:
-            </p>
+            <h3 id="validator-architecture">System Architecture &amp; State Persistence</h3>
             <ul>
-              <li>Built an automatic self-healing step that catches malformed outputs (missing fields, syntax errors, type mismatches).</li>
-              <li>Re-routes the malformed payload with error context to an automated repair routine before passing state to subsequent nodes.</li>
-              <li>In test evaluations, this caught 100% of the malformed output error patterns defined in the test suite.</li>
+              <li><strong>Stateful Graph (LangGraph):</strong> The entire agent lifecycle is modeled as a cyclic state machine with a shared Blackboard state (<code>ValidationState</code>).</li>
+              <li><strong>Interrupt &amp; Resume via Checkpointing:</strong> Built with PostgreSQL / MemorySaver checkpointing, allowing users to pause workflows, review intermediate outputs, upgrade tiers, and resume without losing session state.</li>
+              <li><strong>Self-Healing Output Recovery:</strong> A multi-stage recovery pipeline for structured LLM parsing (Pydantic structured output &rarr; regex extraction &rarr; brace matching &rarr; syntax repair).</li>
+              <li><strong>Asynchronous Acceleration:</strong> Parallelized module execution using Python's <code>asyncio.gather</code> (up to 15 concurrent LLM calls), reducing total report generation time from ~20 minutes to under 3 minutes.</li>
             </ul>
 
-            <h3 id="validator-performance">Concurrency &amp; Latency Improvements</h3>
-            <ul>
-              <li><strong>Asynchronous Scheduling:</strong> Parallelized independent evaluation tasks (e.g., market sizing, competitor analysis, unit economics) using Python's <code>asyncio.gather</code>, reducing total run time from ~20 minutes to less than 3 minutes.</li>
-              <li><strong>Load Testing:</strong> Developed test suites using Pytest, Playwright, and Coverage.py, and ran load tests simulating up to 100 concurrent users to verify state stability under load.</li>
-            </ul>
+            <h3 id="validator-stack">Full-Stack Implementation</h3>
+            <div class="table-responsive">
+              <table class="table table-bordered table-sm small">
+                <tbody>
+                  <tr>
+                    <td class="fw-bold bg-light" style="width: 25%;">Agent Orchestration</td>
+                    <td>LangGraph, LangChain, Blackboard State Pattern</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold bg-light">Backend API</td>
+                    <td>FastAPI (Async REST API, rate limiting, Pydantic V2)</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold bg-light">Frontend</td>
+                    <td>React 18, TypeScript, Vite, Tailwind CSS, shadcn/ui</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold bg-light">Database &amp; Storage</td>
+                    <td>Supabase, PostgreSQL (Graph checkpointing, session management)</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold bg-light">Deployment</td>
+                    <td>Docker, Docker Compose, uv package manager</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-            <p>
-              <a href="../pubs/index.html" class="btn-paper"><i class="fas fa-file-alt"></i> Working Paper Details</a>
-              <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> Repository</a>
+            <p class="mt-2">
+              <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> View Full Repository &amp; Code</a>
             </p>
 
             <!-- HEALTHCARE -->

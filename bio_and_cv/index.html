@@ -161,20 +161,20 @@
               </ul>
             </div>
 
-            <!-- RESEARCH EXPERIENCE -->
-            <h2 id="research">Research Experience</h2>
+            <!-- FINAL YEAR PROJECT -->
+            <h2 id="final-year-project">Bachelor's Final Year Project (FYP)</h2>
             <div class="mb-3">
               <div class="d-flex justify-content-between align-items-baseline">
-                <strong>Validator-AI: A Stateful Multi-Agent System for Automated Startup Validation</strong>
+                <strong>Validator AI: Multi-Agent Startup Validation Platform</strong>
                 <span class="text-muted small">2025 &ndash; 2026</span>
               </div>
-              <div class="text-muted small">Individual project, University of Sahiwal</div>
+              <div class="text-muted small">Final Year Project &amp; Thesis &bull; University of Sahiwal &bull; <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener">GitHub</a></div>
               <ul class="small mt-1">
-                <li>Created a multi-agent LLM system (LangGraph) for founder assistance in startup validation to address context loss in extended dialogues.</li>
-                <li>Switched from a stateless request-response design to a PostgreSQL-backed state checkpointer so the workflow can survive interruptions and resume from where it left off.</li>
-                <li>Built a self-healing step that catches and repairs cases where the LLM output does not conform to the expected schema—catching 100% of the error patterns defined in the unit tests.</li>
-                <li>Moved analysis modules to an asynchronous architecture (<code>asyncio.gather</code>), reducing run time from about 20 minutes to less than 3 minutes.</li>
-                <li>Wrote unit, integration, and load tests (Pytest, Playwright, Coverage.py) and ran load tests up to 100 concurrent users.</li>
+                <li>Undergraduate capstone project and thesis: designed an autonomous multi-agent platform using <strong>LangGraph</strong> that conducts founder interviews, automated web research via Tavily API, and synthesizes 10 specialized analysis modules.</li>
+                <li>Architected state persistence via a <strong>PostgreSQL checkpointer</strong> supporting interrupt and resume across sessions.</li>
+                <li>Engineered a <strong>self-healing output recovery pipeline</strong> (structured output &rarr; regex &rarr; brace matching &rarr; syntax repair) that catches and repairs schema deviations automatically.</li>
+                <li>Parallelized module execution via Python's <code>asyncio.gather</code> (up to 15 concurrent LLM calls), reducing total report compilation time from ~20 minutes to under 3 minutes.</li>
+                <li>Full-stack implementation featuring an asynchronous <strong>FastAPI</strong> backend and a <strong>React 18 + TypeScript + Vite</strong> frontend with Docker orchestration.</li>
               </ul>
             </div>
 

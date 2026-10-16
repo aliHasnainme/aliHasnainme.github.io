@@ -173,22 +173,27 @@
               <li><strong>Computer Vision &amp; Generative AI:</strong> Text-to-3D asset pipelines, diffusion models, and diagnostic medical image classification.</li>
             </ul>
 
-            <h2 id="recent-work">Current Projects</h2>
+            <h2 id="final-year-project">Bachelor's Final Year Project</h2>
 
             <div class="pub-item">
               <div class="pub-title">
-                <a href="research/index.html#validator-ai">Validator-AI: A Stateful Multi-Agent System for Automated Startup Validation</a>
+                <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener">Validator AI &mdash; Multi-Agent Startup Validation Platform</a>
               </div>
               <div class="pub-authors">
-                <strong>Ali Hasnain</strong> &mdash; <em>Supervised Research Project, University of Sahiwal (2025–2026)</em>
+                <strong>Ali Hasnain</strong> &mdash; <em>Final Year Project (FYP) &bull; University of Sahiwal (2025–2026)</em>
               </div>
               <p class="text-muted small mb-2">
-                A multi-agent system implemented in LangGraph to address context loss in extended dialogues. Replaced a stateless request-response design with a PostgreSQL-backed state checkpointer so workflows survive interruptions and resume cleanly. Added an automated self-healing step that catches outputs violating the expected schema, and converted modules to an asynchronous architecture (<code>asyncio.gather</code>) cutting execution time from ~20 minutes to under 3 minutes. Validated through unit, integration, and load tests up to 100 concurrent users.
+                My undergraduate capstone project and thesis: an end-to-end multi-agent platform that interviews founders, executes automated market research via Tavily API, and generates investor-grade strategic reports using specialized LLM agents orchestrated by LangGraph.
               </p>
+              <ul class="text-muted small mb-2">
+                <li><strong>LangGraph Workflow:</strong> Modeled as a stateful directed graph with a shared Blackboard state (<code>ValidationState</code>) and PostgreSQL checkpointer supporting interrupt &amp; resume across sessions.</li>
+                <li><strong>Parallel Analysis Modules:</strong> Executes up to 10 specialized analysis modules concurrently (Market, Financials, Tech Stack, Competitors, Business Model Canvas, Regulatory, Go-to-Market, Risk, Roadmap, Funding Strategy).</li>
+                <li><strong>Self-Healing Pipeline:</strong> A Compiler agent detects and auto-corrects cross-module contradictions with multi-stage JSON recovery fallback (structured output &rarr; regex &rarr; brace matching &rarr; syntax repair).</li>
+                <li><strong>Full-Stack Architecture:</strong> Async FastAPI backend with rate limiting, containerized with Docker, paired with a React 18 + TypeScript + Vite frontend styled with Tailwind CSS and Supabase authentication.</li>
+              </ul>
               <div class="pub-links">
-                <a href="research/index.html#validator-ai" class="btn-paper"><i class="fas fa-info-circle"></i> Project Details</a>
-                <a href="pubs/index.html" class="btn-paper"><i class="fas fa-file-alt"></i> Paper Status</a>
-                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> Code</a>
+                <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> GitHub Repository</a>
+                <a href="research/index.html#validator-ai" class="btn-paper"><i class="fas fa-info-circle"></i> Architecture &amp; System Design</a>
               </div>
             </div>
 
