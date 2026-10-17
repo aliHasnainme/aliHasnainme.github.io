@@ -1,6 +1,6 @@
 # Ali Hasnain &mdash; Academic Website
 
-An academic knowledge hub modeled after **Dr. Jonathan K. Kummerfeld** ([jkk.name](https://jkk.name/home/)), incorporating the **Hugo Docsy** layout system, responsive sidebar navigation, working papers catalog, reading notes knowledge base, and client-side instant search.
+An academic portfolio website modeled after **Dr. Jonathan K. Kummerfeld** ([jkk.name](https://jkk.name/home/)), incorporating the **Hugo Docsy** layout system, responsive sidebar navigation, project showcase, and client-side instant search.
 
 ---
 
@@ -14,17 +14,11 @@ academic-website/
 ├── research/
 │   └── index.html                              # Deep dive: Validator-AI, Smart Healthcare, 3D
 ├── pubs/
-│   └── index.html                              # Working papers, manuscripts in preparation, BibTeX
+│   └── index.html                              # Publications & preprints catalog
 ├── software/
 │   └── index.html                              # Open source repositories and tools
 ├── data/
 │   └── index.html                              # Benchmarks, synthetic datasets, and datasheets
-├── reading-notes/
-│   ├── index.html                              # Literature reading notes portal
-│   ├── multi-agent-systems/
-│   │   └── index.html                          # Note on LangGraph & state persistence
-│   └── llm-reliability/
-│       └── index.html                          # Note on self-healing schemas & JSON grammars
 ├── contact/
 │   └── index.html                              # Contact coordinates, collaboration guidelines
 └── assets/

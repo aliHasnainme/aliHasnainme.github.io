@@ -157,13 +157,8 @@ document.addEventListener("DOMContentLoaded", function () {
           window.location.pathname.includes("/pubs/") ||
           window.location.pathname.includes("/software/") ||
           window.location.pathname.includes("/data/") ||
-          window.location.pathname.includes("/reading-notes/") ||
           window.location.pathname.includes("/contact/")) {
         prefix = "../";
-      }
-      if (window.location.pathname.includes("/reading-notes/multi-agent-systems/") ||
-          window.location.pathname.includes("/reading-notes/llm-reliability/")) {
-        prefix = "../../";
       }
 
       const matches = searchIndex.filter(item => 

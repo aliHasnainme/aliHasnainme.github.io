@@ -25,10 +25,10 @@ const searchIndex = [
     content: "Research overview: multi-agent system state persistence, self-healing output recovery, healthcare imaging classification in PyTorch, and geospatial semantic search."
   },
   {
-    title: "Publications & Working Papers",
+    title: "Publications",
     url: "pubs/index.html",
     category: "Publications",
-    content: "Working papers and research manuscripts in preparation on stateful multi-agent workflows, checkpointing, and LLM reliability."
+    content: "Peer-reviewed publications and conference papers. Papers and preprints will be listed here upon completion and publication."
   },
   {
     title: "Software & Code",
@@ -41,24 +41,6 @@ const searchIndex = [
     url: "data/index.html",
     category: "Data",
     content: "Test sets and evaluation cases for startup validation workflows and LLM schema recovery."
-  },
-  {
-    title: "Reading Notes Hub",
-    url: "reading-notes/index.html",
-    category: "Notes",
-    content: "Informal research reading notes on multi-agent systems, reasoning, and LLM reliability."
-  },
-  {
-    title: "Reflexion (Shinn et al., 2023)",
-    url: "reading-notes/multi-agent-systems/index.html",
-    category: "Reading Notes",
-    content: "Reading note on Reflexion: Language Agents with Verbal Reinforcement Learning (Shinn et al., NeurIPS 2023)."
-  },
-  {
-    title: "Guided Generation (Willard & Louf, 2023)",
-    url: "reading-notes/llm-reliability/index.html",
-    category: "Reading Notes",
-    content: "Reading note on Efficient Guided Generation for Large Language Models using finite state machine grammars."
   },
   {
     title: "Contact",
