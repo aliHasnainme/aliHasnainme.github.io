@@ -144,7 +144,16 @@
             <!-- BIO -->
             <h2 id="bio">Biography</h2>
             <p>
-              I have completed my BS in Software Engineering from the University of Sahiwal in Pakistan. My CGPA was 3.63 out of 4.00. My interests are in machine learning and artificial intelligence. I am especially interested in -agent LLM systems. I am also interested in models. I want to build AI systems that stay reliable when used in life. These systems need to handle problems like state loss. They need to handle issues like outputs. They need to handle errors during execution.In addition to studying I have worked as a Python developer. I worked at AI 3D Scanning Solution. I also worked at Medtronix Systems. I built text-to-3D pipelines. I built RAG systems using LangChain and LangGraph. I created vector search services. I used pgvector and Gemini embeddings for that. I also built FastAPI microservices. I am now working on writing research papers. My work is about agent validation. I am looking for opportunities to study further. I want to do a masters degree or a PhD, in computer science and AI.
+              I am a software engineer and AI researcher based in Sahiwal, Pakistan. I recently graduated with a BS in Software Engineering from the University of Sahiwal, achieving a CGPA of 3.63 / 4.00. My primary research interest is in machine learning systems—specifically multi-agent architectures, state persistence, and making LLM pipelines resilient against real-world failure modes like schema drift, broken formatting, and state loss.
+            </p>
+            <p>
+              Throughout my degree, I worked as a software developer in the industry. At Medtronix Systems, I developed asynchronous FastAPI backend microservices and automated invoice parsing pipelines using Google Vision AI and Gemini. At AI 3D Scanning Solution, I designed text-to-3D generation pipelines and engineered a semantic search service combining pgvector, Gemini embeddings, and geospatial filtering.
+            </p>
+            <p>
+              For my final year capstone and thesis, I created <strong>Validator AI</strong>, a multi-agent system built on LangGraph that coordinates autonomous agents to interview founders and produce investor-grade startup validation reports. This project helped me tackle practical agent orchestration issues firsthand—such as preventing context collapse, building self-healing output parsers, and enabling session pause-and-resume through PostgreSQL checkpoints.
+            </p>
+            <p>
+              I am currently preparing research papers based on this work and actively looking for MS and PhD opportunities in Computer Science and AI.
             </p>
 
             <!-- EDUCATION -->
@@ -170,11 +179,11 @@
               </div>
               <div class="text-muted small">Final Year Project &amp; Thesis &bull; University of Sahiwal &bull; <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener">GitHub</a></div>
               <ul class="small mt-1">
-                <li>Undergraduate capstone project and thesis: designed an autonomous multi-agent platform using <strong>LangGraph</strong> that conducts founder interviews, automated web research via Tavily API, and synthesizes 10 specialized analysis modules.</li>
-                <li>Architected state persistence via a <strong>PostgreSQL checkpointer</strong> supporting interrupt and resume across sessions.</li>
-                <li>Engineered a <strong>self-healing output recovery pipeline</strong> (structured output &rarr; regex &rarr; brace matching &rarr; syntax repair) that catches and repairs schema deviations automatically.</li>
-                <li>Parallelized module execution via Python's <code>asyncio.gather</code> (up to 15 concurrent LLM calls), reducing total report compilation time from ~20 minutes to under 3 minutes.</li>
-                <li>Full-stack implementation featuring an asynchronous <strong>FastAPI</strong> backend and a <strong>React 18 + TypeScript + Vite</strong> frontend with Docker orchestration.</li>
+                <li>Undergraduate capstone project and thesis: designed and built an autonomous multi-agent platform using <strong>LangGraph</strong> that interviews founders, executes automated market research via Tavily API, and coordinates 10 parallel analysis modules.</li>
+                <li>Implemented state persistence using a <strong>PostgreSQL checkpointer</strong>, allowing long-running multi-turn evaluations to be paused, inspected, and resumed across sessions without losing intermediate state.</li>
+                <li>Engineered a <strong>multi-stage output recovery parser</strong> (structured output &rarr; regex extraction &rarr; brace matching &rarr; syntax repair) that catches and repairs malformed LLM JSON on the fly, preventing unhandled runtime exceptions.</li>
+                <li>Parallelized module execution via Python's <code>asyncio.gather</code> (running up to 15 concurrent LLM calls), bringing end-to-end report compilation time down from ~20 minutes to under 3 minutes.</li>
+                <li>Full-stack architecture featuring an asynchronous <strong>FastAPI</strong> backend containerized with Docker, paired with a <strong>React 18 + TypeScript + Vite</strong> frontend styled with Tailwind CSS.</li>
               </ul>
             </div>
 
@@ -188,11 +197,11 @@
               </div>
               <div class="text-muted small">Sahiwal, Pakistan</div>
               <ul class="small mt-1">
-                <li>Built a text-to-3D generation pipeline using open-source models to create 3D assets from an image prompt and reference images.</li>
-                <li>Added a RAG layer to a conversational AI system using LangChain and LangGraph to provide context-aware and grounded responses.</li>
-                <li>Built a semantic product search system using Gemini embeddings stored in pgvector along with Haversine-based geospatial filtering to return relevant nearby results from natural language queries.</li>
-                <li>Integrated Gemini Vision for automatic categorization of product images and Gemini Flash for AI-generated product descriptions.</li>
-                <li>Designed an asynchronous FastAPI backend with SQLAlchemy ORM and Docker orchestration handling ingestion, vector storage, and retrieval.</li>
+                <li>Built a text-to-3D asset pipeline using open-source generative models to turn user prompts and reference views into textured 3D meshes.</li>
+                <li>Developed a conversational RAG assistant using LangChain and LangGraph to answer domain-specific product queries with grounded context.</li>
+                <li>Engineered a semantic search service using Gemini embeddings in PostgreSQL <code>pgvector</code> paired with Haversine distance calculations, allowing users to find nearby listings via natural language queries.</li>
+                <li>Integrated Gemini Vision for automatic product tagging and Gemini Flash for rapid generation of product descriptions.</li>
+                <li>Designed an asynchronous FastAPI backend with SQLAlchemy ORM and Docker orchestration, keeping API response times low and deployments consistent.</li>
               </ul>
             </div>
 
@@ -203,9 +212,9 @@
               </div>
               <div class="text-muted small">Sahiwal, Pakistan</div>
               <ul class="small mt-1">
-                <li>Built FastAPI backend services running automation pipelines asynchronously to handle concurrency with low response times.</li>
-                <li>Built a document processing pipeline using Google Vision AI and Gemini to extract structured fields from PDF invoices and match against vendor records.</li>
-                <li>Developed social media and advertising automation systems integrating with Meta Graph API and Meta Ads Manager.</li>
+                <li>Built asynchronous FastAPI backend microservices to handle concurrent business automations and webhook processing with low response latency.</li>
+                <li>Developed an intelligent document parsing pipeline using Google Vision AI (OCR) and Gemini to extract key fields from PDF invoices and reconcile them against internal database records.</li>
+                <li>Built social media and advertising automation pipelines integrating with the Meta Graph API and Meta Ads Manager to track campaign metrics programmatically.</li>
               </ul>
             </div>
 
@@ -213,13 +222,13 @@
             <h2 id="projects">Other Technical Projects</h2>
             <ul class="small">
               <li class="mb-2">
-                <strong>Smart Healthcare Diagnosis System:</strong> Trained deep learning models (PyTorch, Transformers) for MRI brain tumor detection and chest X-ray classification, achieving 94% accuracy on the test set.
+                <strong>Smart Healthcare Diagnosis System:</strong> Trained deep learning models in PyTorch (CNNs and Vision Transformers) for MRI brain tumor localization and multi-label chest X-ray pathology classification, achieving 94% test accuracy.
               </li>
               <li class="mb-2">
-                <strong>AI Interior &amp; Exterior Design System:</strong> Built generation pipelines using Stable Diffusion and LLMs for home design variations with prompt consistency.
+                <strong>AI Interior &amp; Exterior Design System:</strong> Built a generation pipeline using Stable Diffusion and LLM prompt enhancers to generate high-quality architectural and interior concepts while preserving spatial consistency.
               </li>
               <li class="mb-2">
-                <strong>LLM-Based Intelligent Chatbot:</strong> Context-aware chatbot using Google Gemini API integrated with Firebase Firestore for session persistence.
+                <strong>Intelligent Customer Support Chatbot:</strong> Developed a conversational chatbot using the Google Gemini API with Firebase Firestore for session persistence and chat history management.
               </li>
             </ul>
 

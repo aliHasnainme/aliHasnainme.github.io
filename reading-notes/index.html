@@ -139,10 +139,10 @@
               <span>Reading Notes</span>
             </nav>
 
-            <h1>Reading Notes</h1>
+            <h1>Reading Notes &amp; Paper Takeaways</h1>
 
             <p class="text-muted small">
-              Short summaries and key takeaways from research papers I read during the week. These are informal notes highlighting the core idea, practical strengths, and limitations relevant to my own research.
+              Informal reading notes and takeaways from papers I read on multi-agent architectures, LLM reliability, and machine learning systems. Rather than formal reviews, these are practical breakdowns focusing on what the authors built, what worked, and how it applies to my own research and engineering.
             </p>
 
             <h2 id="recent-notes">Recent Notes</h2>
@@ -155,7 +155,7 @@
                 Multi-Agent Systems &bull; Reasoning &bull; NeurIPS 2023
               </div>
               <p class="small text-muted mb-0">
-                Summary of verbal reinforcement without weight updates. How linguistic feedback stored in short-term and long-term memory buffers allows agents to self-correct reasoning paths across sequential trials.
+                How linguistic self-critique in working memory helps agents correct reasoning mistakes across trials without updating model weights—and why persistent state checkpointing is needed to make this practical.
               </p>
             </div>
 
@@ -167,7 +167,7 @@
                 LLM Reliability &bull; Constrained Decoding &bull; Systems
               </div>
               <p class="small text-muted mb-0">
-                Notes on regular expression and context-free grammar masking at the logit level. Comparison between grammar-guided token masking and post-hoc retry loops for structured JSON generation.
+                A look at finite state machine (FSM) logit masking to enforce strict JSON syntax during token generation, and why application-level validation layers are still required to catch semantic errors.
               </p>
             </div>
 

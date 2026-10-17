@@ -142,42 +142,41 @@
             <h1>Research &amp; Projects</h1>
 
             <p>
-              My primary research focuses on making multi-agent LLM systems reliable and practical. In complex tasks requiring many conversational turns or asynchronous steps, models often suffer from lost state, erratic execution, and malformed outputs. Below are details of the projects I have developed to address these problems.
+              My research and engineering work centers on making multi-agent LLM systems reliable and practical. In complex tasks requiring many conversational turns, multiple tools, or asynchronous sub-tasks, models often run into real-world hurdles: dropped context, schema parsing errors, and conflicting assumptions between agents. Below are details of the systems I've built to tackle these problems.
             </p>
 
             <!-- VALIDATOR-AI -->
             <h2 id="validator-ai">Validator AI: Multi-Agent Startup Validation Platform</h2>
             <div class="text-muted small mb-3">
-              <em>Bachelor's Final Year Project (FYP) &bull; University of Sahiwal (2025&ndash;2026)</em> &bull;
+              <em>Bachelor's Final Year Project &amp; Thesis &bull; University of Sahiwal (2025&ndash;2026)</em> &bull;
               <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>aliHasnainme/validator-ai</a>
             </div>
 
             <p>
-              <strong>Validator AI</strong> was my undergraduate capstone project and bachelor's thesis. It is an end-to-end autonomous multi-agent platform designed to interview startup founders, conduct automated real-time web research, execute deep strategic analysis across up to 10 specialized dimensions, and synthesize investor-grade reports with viability scoring.
+              <strong>Validator AI</strong> was my undergraduate capstone project and bachelor's thesis. Evaluating a new startup idea thoroughly requires examining multiple angles: market demand, financial viability, tech stack feasibility, competitors, and potential legal hurdles. Doing this manually takes days of research, but giving the entire task to a single LLM prompt leads to hallucinated data and shallow answers. Validator AI explores how a team of specialized agents—each focused on one specific domain—can collaborate to produce a rigorous, structured validation report.
             </p>
 
-            <h3 id="validator-pipeline">The 6-Stage Multi-Agent Pipeline</h3>
+            <h3 id="validator-pipeline">How the Multi-Agent Pipeline Works</h3>
             <ol class="small">
-              <li><strong>Interview Phase:</strong> An adaptive interviewer agent asks 1&ndash;5 targeted clarifying questions to understand the founder's thesis.</li>
-              <li><strong>Research Phase:</strong> Automated web research via the Tavily API gathers live market data, trends, and existing competitor footprints.</li>
-              <li><strong>Parallel Analysis:</strong> Concurrent execution of up to 10 specialized analysis modules:
+              <li><strong>Adaptive Founder Interview:</strong> An interviewer agent asks 1&ndash;5 clarifying questions to unpack the founder's core thesis, target audience, and business model before analysis begins.</li>
+              <li><strong>Live Web Research:</strong> A researcher agent queries the Tavily API to gather live market data, recent competitors, and industry benchmarks.</li>
+              <li><strong>Concurrent Domain Analysis:</strong> Up to 10 specialized agent modules run in parallel:
                 <ul>
-                  <li>Market Analysis &bull; Financial Projections &bull; Tech Stack Architecture &bull; Competitor Landscape</li>
-                  <li>Business Model Canvas (BMC) &bull; Regulatory Compliance &bull; Go-to-Market (GTM) Strategy</li>
-                  <li>Risk Analysis &bull; Product Roadmap &bull; Funding Strategy</li>
+                  <li>Market Size &amp; Opportunity &bull; Financial Projections &bull; Technical Architecture &bull; Competitor Analysis</li>
+                  <li>Business Model Canvas (BMC) &bull; Regulatory Compliance &bull; Go-to-Market Strategy</li>
+                  <li>Risk Assessment &bull; Product Roadmap &bull; Funding &amp; Pitch Strategy</li>
                 </ul>
               </li>
-              <li><strong>Compilation:</strong> A specialized Compiler agent cross-examines outputs across all modules to catch and reconcile contradictions (e.g. market assumptions vs. financial projections).</li>
-              <li><strong>Quality Assurance:</strong> Consistency cascades detect and auto-correct cross-module discrepancies.</li>
-              <li><strong>Delivery:</strong> Investor-grade HTML and JSON reports with 5-dimension and 8-dimension viability scoring and actionable Go/No-Go recommendations.</li>
+              <li><strong>Contradiction Resolution &amp; Compilation:</strong> Because agents analyze independently, they can occasionally make conflicting assumptions (e.g., market size assuming an enterprise model while the financial module projects consumer margins). A Compiler agent inspects cross-module outputs, resolves discrepancies, and harmonizes the findings.</li>
+              <li><strong>Report Generation:</strong> Formats the finalized data into interactive HTML and JSON reports complete with structured domain scores, viability metrics, and actionable recommendations.</li>
             </ol>
 
-            <h3 id="validator-architecture">System Architecture &amp; State Persistence</h3>
+            <h3 id="validator-architecture">System Architecture &amp; Reliability Engineering</h3>
             <ul>
-              <li><strong>Stateful Graph (LangGraph):</strong> The entire agent lifecycle is modeled as a cyclic state machine with a shared Blackboard state (<code>ValidationState</code>).</li>
-              <li><strong>Interrupt &amp; Resume via Checkpointing:</strong> Built with PostgreSQL / MemorySaver checkpointing, allowing users to pause workflows, review intermediate outputs, upgrade tiers, and resume without losing session state.</li>
-              <li><strong>Self-Healing Output Recovery:</strong> A multi-stage recovery pipeline for structured LLM parsing (Pydantic structured output &rarr; regex extraction &rarr; brace matching &rarr; syntax repair).</li>
-              <li><strong>Asynchronous Acceleration:</strong> Parallelized module execution using Python's <code>asyncio.gather</code> (up to 15 concurrent LLM calls), reducing total report generation time from ~20 minutes to under 3 minutes.</li>
+              <li><strong>Stateful Graph (LangGraph):</strong> The system is modeled as a cyclic state graph with a shared blackboard state (<code>ValidationState</code>).</li>
+              <li><strong>State Checkpointing (PostgreSQL):</strong> Because full evaluations take a couple of minutes, I integrated PostgreSQL checkpointing so workflows can be safely paused, inspected, and resumed at any step without losing progress.</li>
+              <li><strong>Self-Healing Output Parser:</strong> LLMs frequently introduce subtle syntax errors or markdown wrapping when asked for complex JSON. To avoid pipeline failures, I built a progressive recovery fallback: strict Pydantic parsing &rarr; regex JSON block extraction &rarr; brace balance repair &rarr; syntax correction.</li>
+              <li><strong>Asynchronous Acceleration:</strong> Running 10 analysis modules sequentially took ~20 minutes. By parallelizing independent LLM calls with Python's <code>asyncio.gather</code>, I brought the full report compilation time down to under 3 minutes.</li>
             </ul>
 
             <h3 id="validator-stack">Full-Stack Implementation</h3>
@@ -190,15 +189,15 @@
                   </tr>
                   <tr>
                     <td class="fw-bold bg-light">Backend API</td>
-                    <td>FastAPI (Async REST API, rate limiting, Pydantic V2)</td>
+                    <td>FastAPI (Async REST endpoints, rate limiting, Pydantic V2)</td>
                   </tr>
                   <tr>
                     <td class="fw-bold bg-light">Frontend</td>
                     <td>React 18, TypeScript, Vite, Tailwind CSS, shadcn/ui</td>
                   </tr>
                   <tr>
-                    <td class="fw-bold bg-light">Database &amp; Storage</td>
-                    <td>Supabase, PostgreSQL (Graph checkpointing, session management)</td>
+                    <td class="fw-bold bg-light">Database &amp; Checkpoints</td>
+                    <td>PostgreSQL, Supabase (Graph checkpointing, session management)</td>
                   </tr>
                   <tr>
                     <td class="fw-bold bg-light">Deployment</td>
@@ -218,27 +217,27 @@
               <em>Personal Project &bull; PyTorch, Transformers</em>
             </div>
             <p>
-              Trained deep learning classification models for radiographic analysis:
+              Trained and evaluated deep learning models for diagnostic medical imaging:
             </p>
             <ul>
-              <li>MRI Brain Tumor Detection: Localizing intracranial lesions using preprocessed magnetic resonance imaging sequences.</li>
-              <li>Chest X-Ray Pathology: Multi-class classification of pulmonary conditions on radiographic images.</li>
-              <li>Achieved <strong>94% classification accuracy</strong> on the held-out test split.</li>
+              <li><strong>Brain Tumor Detection (MRI):</strong> Classifying intracranial lesions from preprocessed MRI scans using convolutional networks.</li>
+              <li><strong>Chest X-Ray Pathology:</strong> Multi-label classification for common pulmonary conditions.</li>
+              <li>Achieved <strong>94% classification accuracy</strong> on the held-out test split using standard data augmentation and transfer learning.</li>
             </ul>
 
             <!-- MULTIMODAL 3D -->
             <h2 id="text-to-3d">Text-to-3D Generation &amp; Geospatial Search</h2>
             <div class="text-muted small mb-2">
-              <em>Engineering Role &bull; AI 3D Scanning Solution (2025&ndash;Present)</em>
+              <em>Industry Role &bull; AI 3D Scanning Solution (2025&ndash;Present)</em>
             </div>
             <p>
-              Developed production AI pipelines combining generative modeling and spatial retrieval:
+              Built production pipelines combining generative AI, vector retrieval, and geospatial filtering:
             </p>
             <ul>
-              <li><strong>3D Generation:</strong> Pipeline using open-source models to generate textured 3D assets from an input image prompt and reference views.</li>
-              <li><strong>Conversational RAG:</strong> Grounded user dialogue assistant using LangChain and LangGraph for context retrieval.</li>
-              <li><strong>Spatial Semantic Search:</strong> Integrated Google Gemini embeddings stored in PostgreSQL <code>pgvector</code>, filtering search results using the Haversine formula to return nearby items matching semantic queries.</li>
-              <li><strong>Backend Service:</strong> Asynchronous FastAPI service with SQLAlchemy ORM and containerized Docker orchestration.</li>
+              <li><strong>Text-to-3D Pipeline:</strong> Integrated open-source models to generate textured 3D meshes from user prompts and reference view angles.</li>
+              <li><strong>Conversational RAG Assistant:</strong> Grounded user assistant built with LangChain and LangGraph for catalog search and question answering.</li>
+              <li><strong>Geospatial Semantic Search:</strong> Stored Gemini embeddings in PostgreSQL with <code>pgvector</code>, filtering search results using the Haversine formula to return nearby locations matching natural language queries.</li>
+              <li><strong>Microservice Backend:</strong> Asynchronous FastAPI service with SQLAlchemy ORM and containerized Docker orchestration.</li>
             </ul>
 
           </main>

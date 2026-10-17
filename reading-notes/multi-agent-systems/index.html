@@ -148,28 +148,31 @@
               <a href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noopener">arXiv:2303.11366</a>
             </div>
 
-            <h2 id="core-idea">Core Idea</h2>
+            <h2 id="core-idea">The Core Idea</h2>
             <p>
-              Traditional reinforcement learning updates model weights through scalar reward gradients, which requires massive sample efficiency and fine-tuning infrastructure. <em>Reflexion</em> proposes "verbal reinforcement learning"—converting binary or scalar task failure signals into natural language feedback (self-reflection). The agent stores this reflective text in a memory buffer and prepends it to the prompt in subsequent trials to avoid repeating previous mistakes.
+              Standard reinforcement learning fine-tunes model weights using scalar reward signals—a process that requires extensive compute, careful hyperparameter tuning, and significant sample complexity. <em>Reflexion</em> takes an alternative angle: instead of updating model weights, it translates task failure signals into natural language critique (self-reflection). The agent writes down what went wrong, stores this reflective note in a memory buffer, and injects it into the prompt context for subsequent attempts.
             </p>
 
-            <h2 id="key-mechanisms">Key Mechanisms</h2>
+            <h2 id="key-mechanisms">Key Components</h2>
             <ul>
-              <li><strong>Actor:</strong> Generates state-action trajectories using standard prompting (e.g., ReAct).</li>
-              <li><strong>Evaluator:</strong> Computes a reward signal (heuristics, test cases, or an LLM judge) to determine whether the task succeeded or failed.</li>
-              <li><strong>Self-Reflection Model:</strong> When an execution trajectory fails, an evaluator LLM analyzes the trace and outputs verbal critique diagnosing <em>why</em> it failed and what should be altered next time.</li>
-              <li><strong>Memory:</strong> Stores short-term dialogue context and long-term reflection notes across trials.</li>
+              <li><strong>Actor:</strong> Explores the environment and produces step-by-step action trajectories (e.g. using standard ReAct prompting).</li>
+              <li><strong>Evaluator:</strong> Scores the trajectory—either through unit test results, deterministic heuristics, or an LLM evaluator—to flag whether the attempt succeeded.</li>
+              <li><strong>Self-Reflection Agent:</strong> When a run fails, this model reviews the execution trajectory and writes a concise critique explaining <em>why</em> it failed and what to do differently next time.</li>
+              <li><strong>Memory Buffer:</strong> Carries both immediate step-by-step history and cumulative reflection notes into the next trial's prompt.</li>
             </ul>
 
-            <h2 id="practical-strengths">Strengths</h2>
+            <h2 id="practical-strengths">What Works Well</h2>
             <ul>
-              <li>Substantial performance jumps on decision-making benchmarks (ALFWorld, WebShop) and code generation (HumanEval) without modifying underlying model weights.</li>
-              <li>Provides human-readable reasoning traces, making error diagnosis straightforward.</li>
+              <li>Shows impressive performance gains on decision benchmarks (ALFWorld, WebShop) and code generation tasks (HumanEval) purely at inference time—no weight tuning needed.</li>
+              <li>Because the reflections are written in plain English, debugging where an agent went off course is much easier than inspecting loss curves or latent states.</li>
             </ul>
 
-            <h2 id="relevance">Takeaways for My Research</h2>
+            <h2 id="relevance">Takeaways for My Own Work</h2>
             <p>
-              Reflexion demonstrates that linguistic error critique is often more sample-efficient than re-running fresh queries from scratch. However, Reflexion relies on ephemeral in-memory context; if the process crashes midway through trial 3, the entire memory trace is lost. In my project (<strong>Validator-AI</strong>), I combined verbal error feedback with persistent PostgreSQL checkpoints so that corrective reflections survive interruptions and can be reviewed asynchronously.
+              The most practical takeaway here is that verbal self-critique is far more token-efficient than re-running fresh queries blindly from scratch. But there's a big operational catch: Reflexion's memory lives entirely in RAM during execution. If the backend restarts or a network timeout kills the process during trial 3, all that hard-won reflection context vanishes.
+            </p>
+            <p>
+              This is why in my capstone project (<strong>Validator AI</strong>), I coupled agent self-correction with persistent database checkpoints (PostgreSQL). By checkpointing both the state and the corrective notes, agents can pause, survive server restarts, and pick up right where they left off.
             </p>
 
           </main>

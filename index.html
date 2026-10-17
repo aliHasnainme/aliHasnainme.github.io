@@ -151,23 +151,27 @@
             </div>
 
             <p>
-              I recently completed my BS in Software Engineering at the <strong>University of Sahiwal</strong>, Pakistan (CGPA 3.63/4.00). My research interests are in machine learning and artificial intelligence, with a specific interest in multi-agent LLM systems, generative models, and building AI systems that remain reliable in practice—such as handling state loss, malformed outputs, and execution errors.
+              Hi, I'm Ali. I recently graduated with a BS in Software Engineering from the <strong>University of Sahiwal</strong>, Pakistan (CGPA 3.63 / 4.00). My main focus is on artificial intelligence and machine learning, with a strong interest in multi-agent systems, generative models, and making LLM pipelines reliable enough for real-world production.
             </p>
 
             <p>
-              Alongside academic research, I have worked professionally as a Python developer at <em>AI 3D Scanning Solution</em> and <em>Medtronix Systems</em>, building text-to-3D pipelines, RAG systems with LangChain and LangGraph, semantic vector search services using pgvector and Gemini embeddings, and asynchronous FastAPI microservices.
+              Much of my recent work focuses on solving the practical problems that arise when building complex agent workflows: keeping track of session state across multi-turn conversations, handling schema mismatches and broken JSON outputs gracefully, and optimizing latency across distributed calls.
             </p>
 
             <p>
-              I am currently preparing research manuscripts based on my work in stateful agent validation and seeking graduate study (MS/PhD) opportunities in computer science and AI.
+              Alongside my studies, I have worked as a Python developer at <em>AI 3D Scanning Solution</em> and <em>Medtronix Systems</em>. In those roles, I built text-to-3D asset pipelines, conversational RAG assistants using LangChain and LangGraph, semantic vector search services using pgvector and Gemini embeddings, and asynchronous FastAPI microservices.
+            </p>
+
+            <p>
+              I am currently writing up a research paper based on my final year capstone project (Validator AI) and preparing applications for MS/PhD programs in Computer Science and AI.
             </p>
 
             <h2 id="research-interests">Research Interests</h2>
             <ul>
-              <li><strong>Multi-Agent LLM Architectures:</strong> Cyclic execution graphs, state persistence, and checkpointing for long-running workflows.</li>
-              <li><strong>Reliable AI &amp; Output Conformance:</strong> Handling schema drift, self-healing recovery loops for malformed JSON, and deterministic error handling in LLM pipelines.</li>
-              <li><strong>Retrieval &amp; Search:</strong> Dense vector retrieval, hybrid semantic-geospatial search (pgvector + Haversine filtering), and conversational RAG.</li>
-              <li><strong>Computer Vision &amp; Generative AI:</strong> Text-to-3D asset pipelines, diffusion models, and diagnostic medical image classification.</li>
+              <li><strong>Multi-Agent Systems &amp; State Persistence:</strong> Coordinating specialized agents in cyclic graphs (LangGraph) with database checkpointing so workflows can be paused, inspected, and resumed without losing state.</li>
+              <li><strong>Reliable LLM Pipelines:</strong> Building deterministic fallback layers to catch and repair schema deviations, malformed JSON, and logical contradictions across multi-agent reasoning steps.</li>
+              <li><strong>Semantic Search &amp; Retrieval (RAG):</strong> Combining dense vector search (pgvector, Gemini embeddings) with geospatial filtering (Haversine distance) to build grounded, context-rich retrieval systems.</li>
+              <li><strong>Generative AI &amp; Vision:</strong> Text-to-3D asset generation, diffusion models, and diagnostic deep learning models for medical image classification.</li>
             </ul>
 
             <h2 id="final-year-project">Bachelor's Final Year Project</h2>
@@ -177,16 +181,16 @@
                 <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener">Validator AI &mdash; Multi-Agent Startup Validation Platform</a>
               </div>
               <div class="pub-authors">
-                <strong>Ali Hasnain</strong> &mdash; <em>Final Year Project (FYP) &bull; University of Sahiwal (2025–2026)</em>
+                <strong>Ali Hasnain</strong> &mdash; <em>Final Year Project &amp; Thesis &bull; University of Sahiwal (2025–2026)</em>
               </div>
               <p class="text-muted small mb-2">
-                My undergraduate capstone project and thesis: an end-to-end multi-agent platform that interviews founders, executes automated market research via Tavily API, and generates investor-grade strategic reports using specialized LLM agents orchestrated by LangGraph.
+                For my undergraduate capstone project and thesis, I wanted to see how autonomous LLM agents could tackle complex analytical work that usually takes days of manual effort. Validator AI interviews founders, performs live market research via Tavily, and coordinates 10 specialized agent modules to generate thorough startup validation reports.
               </p>
               <ul class="text-muted small mb-2">
-                <li><strong>LangGraph Workflow:</strong> Modeled as a stateful directed graph with a shared Blackboard state (<code>ValidationState</code>) and PostgreSQL checkpointer supporting interrupt &amp; resume across sessions.</li>
-                <li><strong>Parallel Analysis Modules:</strong> Executes up to 10 specialized analysis modules concurrently (Market, Financials, Tech Stack, Competitors, Business Model Canvas, Regulatory, Go-to-Market, Risk, Roadmap, Funding Strategy).</li>
-                <li><strong>Self-Healing Pipeline:</strong> A Compiler agent detects and auto-corrects cross-module contradictions with multi-stage JSON recovery fallback (structured output &rarr; regex &rarr; brace matching &rarr; syntax repair).</li>
-                <li><strong>Full-Stack Architecture:</strong> Async FastAPI backend with rate limiting, containerized with Docker, paired with a React 18 + TypeScript + Vite frontend styled with Tailwind CSS and Supabase authentication.</li>
+                <li><strong>LangGraph Workflow:</strong> Modeled as a stateful cyclic graph with a shared blackboard state (<code>ValidationState</code>). Uses a PostgreSQL checkpointer so users can pause an evaluation, review intermediate findings, and resume seamlessly.</li>
+                <li><strong>Parallel Execution:</strong> Ran independent analysis modules concurrently using Python's <code>asyncio.gather</code> (handling up to 15 concurrent LLM calls), bringing total report generation time down from ~20 minutes to under 3 minutes.</li>
+                <li><strong>Self-Healing Output Parser:</strong> Engineered a progressive fallback parser (structured output &rarr; regex extraction &rarr; brace matching &rarr; syntax repair) that fixes broken JSON responses on the fly instead of crashing the pipeline.</li>
+                <li><strong>Full-Stack Architecture:</strong> Built an async FastAPI backend containerized with Docker, paired with a React 18 + TypeScript + Vite frontend styled with Tailwind CSS.</li>
               </ul>
               <div class="pub-links">
                 <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> GitHub Repository</a>
@@ -197,13 +201,13 @@
             <h2 id="news">News &amp; Updates</h2>
             <ul class="list-unstyled small">
               <li class="mb-2">
-                <span class="text-muted fw-bold me-2">2026</span> Completed BS in Software Engineering at the University of Sahiwal (CGPA 3.63 / 4.00).
+                <span class="text-muted fw-bold me-2">2026</span> Graduated with a BS in Software Engineering from the University of Sahiwal (CGPA 3.63 / 4.00).
               </li>
               <li class="mb-2">
-                <span class="text-muted fw-bold me-2">2026</span> Finalized benchmarks for the Validator-AI stateful multi-agent system; preparing manuscript for submission.
+                <span class="text-muted fw-bold me-2">2026</span> Finalized benchmarks and ablation tests for Validator AI; drafting a manuscript for research submission.
               </li>
               <li class="mb-2">
-                <span class="text-muted fw-bold me-2">2025</span> Joined AI 3D Scanning Solution as Python Developer working on text-to-3D and RAG systems.
+                <span class="text-muted fw-bold me-2">2025</span> Joined AI 3D Scanning Solution as a Python Developer, working on text-to-3D pipelines and semantic search.
               </li>
               <li class="mb-2">
                 <span class="text-muted fw-bold me-2">2024</span> Completed DeepLearning.AI Specializations in Machine Learning and Mathematics for ML.

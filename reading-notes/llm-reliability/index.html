@@ -148,23 +148,23 @@
               <a href="https://arxiv.org/abs/2307.09702" target="_blank" rel="noopener">arXiv:2307.09702</a>
             </div>
 
-            <h2 id="core-idea">Core Idea</h2>
+            <h2 id="core-idea">The Core Idea</h2>
             <p>
-              When forcing LLMs to output structured data (such as JSON adhering to a Pydantic or JSON schema), common approaches either rely on few-shot prompting (which frequently produces invalid syntax) or rejection sampling (re-generating the full output until it parses, which wastes tokens and latency). The authors introduce an algorithm using finite state machines (FSM) constructed from regular expressions or context-free grammars (CFGs) to index the tokenizer's vocabulary. At each autoregressive decoding step, tokens that would violate the grammar are masked out of the logits, ensuring 100% syntactically valid outputs with zero rejection overhead.
+              When asking LLMs to generate structured data (like JSON conforming to a Pydantic model), most teams either rely on few-shot prompting—which frequently outputs broken syntax—or rejection sampling (re-running the prompt until it parses, burning tokens and adding seconds of latency). Willard and Louf introduce a technique using finite state machines (FSM) built from regular expressions or context-free grammars (CFGs). At each step of autoregressive generation, any token in the model's vocabulary that would break the grammar is masked out from the logits. This mathematically guarantees valid syntax on the first pass with zero rejection overhead.
             </p>
 
-            <h2 id="key-insights">Key Insights</h2>
+            <h2 id="key-insights">Key Engineering Insights</h2>
             <ul>
-              <li><strong>Precomputing FSM Transitions:</strong> Instead of parsing token by token during inference, the grammar is compiled upfront into a deterministic finite automaton (DFA). This keeps inference overhead under negligible milliseconds per token.</li>
-              <li><strong>Zero Fine-Tuning:</strong> Operates directly on the output distribution of any pretrained autoregressive language model without retraining or adapter weights.</li>
+              <li><strong>Precomputing FSM Transitions:</strong> Rather than evaluating the grammar token-by-token during inference, the grammar is compiled upfront into a deterministic finite automaton (DFA). This keeps inference overhead down to a fraction of a millisecond per token.</li>
+              <li><strong>No Model Retraining:</strong> It works right on top of any pretrained autoregressive model's vocabulary without fine-tuning, LoRA adapters, or extra weights.</li>
             </ul>
 
-            <h2 id="limitations-and-relevance">Relevance to My Work</h2>
+            <h2 id="limitations-and-relevance">Relevance to What I'm Building</h2>
             <p>
-              While grammar-guided logit masking guarantees <em>syntactic</em> validity (the JSON will parse without syntax errors), it cannot prevent <em>semantic</em> errors (e.g., a number is generated where a positive float within a specific business range was expected, or a required logical constraint between two fields is violated).
+              Grammar-guided decoding solves the <em>syntax</em> problem—the JSON will always parse cleanly. But in complex systems like <strong>Validator AI</strong>, syntax is only half the battle. A model can produce syntactically valid JSON that contains invalid data: a negative number for a valuation, missing required business fields, or assumptions that conflict with another agent's output.
             </p>
             <p>
-              This paper reinforces why a two-tier verification layer is necessary: using constrained decoding or structured output APIs where supported, paired with application-level self-healing repair routines to catch semantic domain errors before state is committed.
+              This paper validated my design choice to use a two-layer reliability architecture: first using structured output APIs or constrained grammars to guarantee clean parsing, followed by an application-level recovery parser and cross-agent compiler to validate semantic rules before saving to state.
             </p>
 
           </main>

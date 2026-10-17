@@ -20,13 +20,18 @@
           <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
             <div class="td-sidebar__inner">
               
-              <div class="td-sidebar__brand d-flex align-items-center justify-content-between">
-                <div>
-                  <a href="../index.html">Ali Hasnain</a>
-                  <div class="td-sidebar__subtitle">AI & Software Engineering Researcher</div>
-                </div>
-                <button class="btn btn-link td-sidebar__toggle d-md-none p-0 text-dark" type="button" id="td-sidebar-toggle" aria-label="Toggle navigation">
-                  <i class="fas fa-bars fa-lg"></i>
+              <div class="td-sidebar__profile">
+                <img src="../assets/images/Profile.jpeg" onerror="this.onerror=null; this.src='../assets/images/profile.svg';" alt="Ali Hasnain" class="profile-img-sidebar">
+              </div>
+
+              <div class="td-sidebar__brand">
+                <a href="../index.html">Ali Hasnain</a>
+                <div class="td-sidebar__subtitle">University of Sahiwal</div>
+              </div>
+
+              <div class="d-md-none text-center mb-3">
+                <button class="btn btn-sm btn-outline-secondary" type="button" id="td-sidebar-toggle">
+                  <i class="fas fa-bars me-1"></i> Navigation Menu
                 </button>
               </div>
 
@@ -35,7 +40,7 @@
                 <input type="search" id="site-search-input" placeholder="Search site... (Ctrl+K)" autocomplete="off">
               </div>
 
-              <nav class="td-sidebar-nav" id="td-section-nav">
+              <nav class="td-sidebar-nav collapse d-md-block" id="td-section-nav">
                 <ul class="td-sidebar-nav__section pe-md-2 ul-0">
                   <li class="td-sidebar-nav__section-title">
                     <ul class="ul-1">
@@ -140,55 +145,53 @@
               <span>Datasets</span>
             </nav>
 
-            <h1>Datasets &amp; Benchmarks</h1>
+            <h1>Evaluation Data &amp; Benchmarks</h1>
 
-            <div class="lead mb-4">
-              <p>
-                Empirical benchmarks, synthetic evaluation sets, and curated test corpora developed for multi-agent reasoning and LLM reliability research.
-              </p>
-            </div>
+            <p class="text-muted small">
+              Test sets and evaluation cases created while benchmarking multi-agent coordination, graph checkpointing, and LLM schema recovery routines.
+            </p>
 
             <!-- DATASET 1 -->
             <div class="pub-item" id="dataset-svb">
               <div class="pub-title">
-                Startup Validation Benchmark Suite (SVB-100)
+                Startup Evaluation Test Suite (SVB-100)
               </div>
               <div class="text-muted small mb-2">
                 <span class="badge bg-secondary">Multi-Agent</span>
-                <span class="badge bg-secondary">Long-Horizon Dialogue</span>
+                <span class="badge bg-secondary">Workflow Evaluation</span>
                 <span class="badge bg-secondary">JSON Lines</span>
               </div>
               <p class="small text-muted mb-2">
-                A structured evaluation corpus comprising 100 comprehensive early-stage startup case studies spanning fintech, healthcare, SaaS, and marketplace verticals. Designed to benchmark multi-agent systems across five decision nodes: value proposition extraction, total addressable market (TAM) estimation, competitor clustering, unit economic sanity checking, and risk factor identification.
+                A collection of 100 early-stage startup scenarios across fintech, healthcare, SaaS, and marketplaces. Built to benchmark multi-agent pipeline consistency: testing whether parallel agents extract consistent value propositions, reasonable TAM market figures, and coherent unit economic estimates without hallucinating conflicting data.
               </p>
               <div class="pub-links">
-                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fas fa-download"></i> Download / Hugging Face</a>
-                <a href="../research/index.html#validator-ai" class="btn-paper"><i class="fas fa-file-alt"></i> Benchmark Protocol</a>
+                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fas fa-download"></i> GitHub / Repository</a>
+                <a href="../research/index.html#validator-ai" class="btn-paper"><i class="fas fa-file-alt"></i> Project Architecture</a>
               </div>
             </div>
 
             <!-- DATASET 2 -->
             <div class="pub-item" id="dataset-sr1000">
               <div class="pub-title">
-                Schema Recovery Benchmark (SR-1000)
+                Schema Recovery Test Corpus (SR-1000)
               </div>
               <div class="text-muted small mb-2">
                 <span class="badge bg-secondary">LLM Reliability</span>
                 <span class="badge bg-secondary">Malformed JSON</span>
-                <span class="badge bg-secondary">Self-Healing</span>
+                <span class="badge bg-secondary">Error Recovery</span>
               </div>
               <p class="small text-muted mb-2">
-                A curated dataset of 1,000 synthetic and empirically captured malformed LLM responses. Contains systematically generated deviations: truncated JSON keys, extraneous markdown prose wrapping, data type hallucinations, and unbalanced syntax delimiters. Used to benchmark automated schema self-healing routines without human intervention.
+                A set of 1,000 real-world and synthetic malformed LLM responses collected during development: missing closing brackets, conversational markdown preamble, escaped quotes in JSON strings, and truncated keys. Used to test the accuracy and speed of automated parser recovery fallbacks.
               </p>
               <div class="pub-links">
-                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fas fa-download"></i> Corpus &amp; Test Suite</a>
+                <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener" class="btn-paper"><i class="fas fa-download"></i> Test Suite</a>
               </div>
             </div>
 
             <!-- DATA USAGE NOTICE -->
             <h2 id="licensing">Data Licensing &amp; Usage</h2>
             <p>
-              All academic datasets published on this site are distributed under the <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong> license, allowing free use, modification, and benchmarking with appropriate academic citation.
+              Evaluation resources published here are shared under the <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong> license for research, replication, and benchmarking purposes.
             </p>
 
           </main>
@@ -203,12 +206,12 @@
 
       <footer class="td-footer row align-items-center justify-content-between mx-0">
         <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0 px-4">
-          &copy; 2026 Ali Hasnain &bull; Modeled after <a href="https://jkk.name" target="_blank" rel="noopener">jkk.name</a>
+          &copy; 2026 Ali Hasnain &bull; University of Sahiwal
         </div>
         <div class="col-12 col-md-6 text-center text-md-end px-4">
-          <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>GitHub</a> &bull;
-          <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener"><i class="ai ai-google-scholar me-1"></i>Scholar</a> &bull;
-          <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener"><i class="ai ai-orcid me-1"></i>ORCID</a>
+          <a href="https://github.com/aliHasnainme" target="_blank" rel="noopener">GitHub</a> &bull;
+          <a href="https://scholar.google.com/citations?user=lgIdgBcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> &bull;
+          <a href="https://orcid.org/0009-0002-6979-4059" target="_blank" rel="noopener">ORCID</a>
         </div>
       </footer>
 
