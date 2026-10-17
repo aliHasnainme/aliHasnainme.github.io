@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Bio &amp; CV | Ali Hasnain</title>
-    <meta name="description" content="Biography and Curriculum Vitae for Ali Hasnain - Education, research experience, professional roles, and technical skills.">
+    <meta name="description" content="Biography and Curriculum Vitae for Ali Hasnain - Education, professional experience, key projects, and technical skills.">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -51,15 +51,9 @@
                         </a>
                       </li>
                       <li>
-                        <a href="../bio_and_cv/index.html" class="td-sidebar-link active">
-                          <i class="fas fa-user"></i>
-                          <span>Bio &amp; CV</span>
-                        </a>
-                      </li>
-                      <li>
                         <a href="../research/index.html" class="td-sidebar-link">
                           <i class="fas fa-flask"></i>
-                          <span>Research &amp; Projects</span>
+                          <span>Projects</span>
                         </a>
                       </li>
                       <li>
@@ -69,9 +63,9 @@
                         </a>
                       </li>
                       <li>
-                        <a href="../software/index.html" class="td-sidebar-link">
-                          <i class="fas fa-code"></i>
-                          <span>Software</span>
+                        <a href="../bio_and_cv/index.html" class="td-sidebar-link active">
+                          <i class="fas fa-user"></i>
+                          <span>Bio &amp; CV</span>
                         </a>
                       </li>
                       <li>
@@ -123,16 +117,16 @@
             <!-- BIO -->
             <h2 id="bio">Biography</h2>
             <p>
-              I am a software engineer and AI researcher based in Sahiwal, Pakistan. I recently graduated with a BS in Software Engineering from the University of Sahiwal, achieving a CGPA of 3.63 / 4.00. My primary research interest is in machine learning systems—specifically multi-agent architectures, state persistence, and making LLM pipelines resilient against real-world failure modes like schema drift, broken formatting, and state loss.
+              I am a Software Engineering graduate from the University of Sahiwal, Pakistan (CGPA 3.63 / 4.00), with broad interests across artificial intelligence, machine learning, computer vision, natural language processing, and multimodal systems.
             </p>
             <p>
-              Throughout my degree, I worked as a software developer in the industry. At Medtronix Systems, I developed asynchronous FastAPI backend microservices and automated invoice parsing pipelines using Google Vision AI and Gemini. At AI 3D Scanning Solution, I designed text-to-3D generation pipelines and engineered a semantic search service combining pgvector, Gemini embeddings, and geospatial filtering.
+              Alongside my studies, I have gained hands-on industry experience as a Python developer. At <em>AI 3D Scanning Solution</em>, I worked on text-to-3D and image-to-3D asset generation pipelines, conversational RAG, and semantic product discovery using <code>pgvector</code> with geospatial filtering. Previously at <em>Medtronix Systems</em> / <em>Netso</em>, I built social media and advertising automation systems integrating with the Meta Graph API and Meta Ads Manager, as well as business lead generation web scrapers using Selenium and Playwright.
             </p>
             <p>
-              For my final year capstone and thesis, I created <strong>Validator AI</strong>, a multi-agent system built on LangGraph that coordinates autonomous agents to interview founders and produce investor-grade startup validation reports. This project helped me tackle practical agent orchestration issues firsthand—such as preventing context collapse, building self-healing output parsers, and enabling session pause-and-resume through PostgreSQL checkpoints.
+              For my final year project and bachelor's thesis, I developed <strong>Validator AI</strong>, a multi-agent platform using LangGraph that interviews founders and coordinates 10 concurrent domain modules to generate investor-grade startup validation reports with PostgreSQL state checkpointing.
             </p>
             <p>
-              I am currently preparing research papers based on this work and actively looking for MS and PhD opportunities in Computer Science and AI.
+              I am currently preparing for graduate studies (MS / PhD) in Computer Science and Artificial Intelligence.
             </p>
 
             <!-- EDUCATION -->
@@ -144,25 +138,8 @@
               </div>
               <div class="text-muted small">University of Sahiwal, Pakistan</div>
               <ul class="small mt-1 text-muted">
-                <li>CGPA: <strong>3.63 / 4.00</strong> (Marks: 3491 / 4600 &bull; 75.89%)</li>
+                <li>CGPA: <strong>3.63 / 4.00</strong> (90.75%)</li>
                 <li>Relevant Coursework: Data Structures &amp; Algorithms, Operating Systems, Database Systems, Computer Networks, Software Architecture, Probability &amp; Statistics, Big Data Analytics, Operations Research.</li>
-              </ul>
-            </div>
-
-            <!-- FINAL YEAR PROJECT -->
-            <h2 id="final-year-project">Bachelor's Final Year Project (FYP)</h2>
-            <div class="mb-3">
-              <div class="d-flex justify-content-between align-items-baseline">
-                <strong>Validator AI: Multi-Agent Startup Validation Platform</strong>
-                <span class="text-muted small">2025 &ndash; 2026</span>
-              </div>
-              <div class="text-muted small">Final Year Project &amp; Thesis &bull; University of Sahiwal &bull; <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener">GitHub</a></div>
-              <ul class="small mt-1">
-                <li>Undergraduate capstone project and thesis: designed and built an autonomous multi-agent platform using <strong>LangGraph</strong> that interviews founders, executes automated market research via Tavily API, and coordinates 10 parallel analysis modules.</li>
-                <li>Implemented state persistence using a <strong>PostgreSQL checkpointer</strong>, allowing long-running multi-turn evaluations to be paused, inspected, and resumed across sessions without losing intermediate state.</li>
-                <li>Engineered a <strong>multi-stage output recovery parser</strong> (structured output &rarr; regex extraction &rarr; brace matching &rarr; syntax repair) that catches and repairs malformed LLM JSON on the fly, preventing unhandled runtime exceptions.</li>
-                <li>Parallelized module execution via Python's <code>asyncio.gather</code> (running up to 15 concurrent LLM calls), bringing end-to-end report compilation time down from ~20 minutes to under 3 minutes.</li>
-                <li>Full-stack architecture featuring an asynchronous <strong>FastAPI</strong> backend containerized with Docker, paired with a <strong>React 18 + TypeScript + Vite</strong> frontend styled with Tailwind CSS.</li>
               </ul>
             </div>
 
@@ -176,49 +153,70 @@
               </div>
               <div class="text-muted small">Sahiwal, Pakistan</div>
               <ul class="small mt-1">
-                <li>Built a text-to-3D asset pipeline using open-source generative models to turn user prompts and reference views into textured 3D meshes.</li>
-                <li>Developed a conversational RAG assistant using LangChain and LangGraph to answer domain-specific product queries with grounded context.</li>
-                <li>Engineered a semantic search service using Gemini embeddings in PostgreSQL <code>pgvector</code> paired with Haversine distance calculations, allowing users to find nearby listings via natural language queries.</li>
-                <li>Integrated Gemini Vision for automatic product tagging and Gemini Flash for rapid generation of product descriptions.</li>
-                <li>Designed an asynchronous FastAPI backend with SQLAlchemy ORM and Docker orchestration, keeping API response times low and deployments consistent.</li>
+                <li>Built a text-to-3D and image-to-3D asset generation pipeline using open-source generative models to produce textured 3D meshes from user prompts and reference views.</li>
+                <li>Developed a conversational RAG assistant using LangChain and LangGraph to answer domain-specific questions with grounded context.</li>
+                <li>Built a semantic product search system using Gemini embeddings in PostgreSQL (<code>pgvector</code>), featuring Haversine-based geospatial radius filtering.</li>
+                <li>Integrated multimodal models (Gemini Vision and Gemini Flash) for automated image categorization and product descriptions.</li>
+                <li>Designed an asynchronous FastAPI backend with SQLAlchemy ORM and containerized Docker orchestration.</li>
               </ul>
             </div>
 
             <div class="mb-3">
               <div class="d-flex justify-content-between align-items-baseline">
-                <strong>Python Developer &mdash; Medtronix Systems</strong>
+                <strong>Python Developer &mdash; Medtronix Systems / Netso</strong>
                 <span class="text-muted small">September 2023 &ndash; April 2025</span>
               </div>
               <div class="text-muted small">Sahiwal, Pakistan</div>
               <ul class="small mt-1">
-                <li>Built asynchronous FastAPI backend microservices to handle concurrent business automations and webhook processing with low response latency.</li>
-                <li>Developed an intelligent document parsing pipeline using Google Vision AI (OCR) and Gemini to extract key fields from PDF invoices and reconcile them against internal database records.</li>
-                <li>Built social media and advertising automation pipelines integrating with the Meta Graph API and Meta Ads Manager to track campaign metrics programmatically.</li>
+                <li>Built social media automation workflows via the Meta Graph API for automated post and story publishing, real-time comment fetching, and performance analytics.</li>
+                <li>Integrated with the Meta Ads Manager API to programmatically create targeted advertising campaigns, manage ad sets and budgets, and track campaign metrics.</li>
+                <li>Engineered high-volume Google Maps business lead scrapers using Python, Playwright, and Selenium to extract local business leads based on targeted geographical search queries.</li>
+                <li>Developed a document processing pipeline combining Google Vision AI (OCR) and Gemini to extract structured line items from PDF invoices.</li>
+                <li>Built asynchronous FastAPI backend microservices for running high-concurrency automation tasks.</li>
               </ul>
             </div>
 
-            <!-- OTHER PROJECTS -->
-            <h2 id="projects">Other Technical Projects</h2>
+            <!-- FINAL YEAR PROJECT -->
+            <h2 id="final-year-project">Bachelor's Final Year Project (Capstone)</h2>
+            <div class="mb-3">
+              <div class="d-flex justify-content-between align-items-baseline">
+                <strong>Validator AI: Multi-Agent Startup Validation Platform</strong>
+                <span class="text-muted small">2025 &ndash; 2026</span>
+              </div>
+              <div class="text-muted small">University of Sahiwal &bull; <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener">GitHub</a></div>
+              <ul class="small mt-1">
+                <li>Undergraduate capstone project and thesis: designed and built an autonomous multi-agent platform using <strong>LangGraph</strong> that interviews founders, executes automated market research via Tavily API, and coordinates 10 parallel analysis modules.</li>
+                <li>Implemented state persistence using a <strong>PostgreSQL checkpointer</strong>, allowing evaluations to be paused, inspected, and resumed across sessions without context loss.</li>
+                <li>Engineered a progressive self-healing parser (schema validation &rarr; regex extraction &rarr; brace matching &rarr; syntax repair) that fixes malformed JSON without crashing the pipeline.</li>
+                <li>Parallelized module execution using <code>asyncio.gather</code>, bringing report compilation time down from ~20 minutes to under 3 minutes.</li>
+                <li>Full-stack architecture featuring an async <strong>FastAPI</strong> backend containerized with Docker, paired with a <strong>React 18 + TypeScript + Vite</strong> frontend styled with Tailwind CSS.</li>
+              </ul>
+            </div>
+
+            <!-- SELECTED PROJECTS -->
+            <h2 id="projects">Selected Technical Projects</h2>
             <ul class="small">
               <li class="mb-2">
-                <strong>Smart Healthcare Diagnosis System:</strong> Trained deep learning models in PyTorch (CNNs and Vision Transformers) for MRI brain tumor localization and multi-label chest X-ray pathology classification, achieving 94% test accuracy.
+                <strong>Local Mart &mdash; Hyperlocal AI Commerce Platform:</strong> Built a local commerce platform featuring semantic search via Gemini embeddings in PostgreSQL (<code>pgvector</code>) and Haversine geospatial radius filtering, with a Flutter mobile frontend and FastAPI backend. (<a href="https://github.com/aliHasnainme/local-mart" target="_blank" rel="noopener">GitHub</a>)
               </li>
               <li class="mb-2">
-                <strong>AI Interior &amp; Exterior Design System:</strong> Built a generation pipeline using Stable Diffusion and LLM prompt enhancers to generate high-quality architectural and interior concepts while preserving spatial consistency.
+                <strong>Google Maps Lead Scraper:</strong> High-throughput lead generation tool using Playwright and Selenium to extract targeted local business listings, reviews, and contact info. (<a href="https://github.com/aliHasnainme/google-maps-scraper" target="_blank" rel="noopener">GitHub</a>)
               </li>
               <li class="mb-2">
-                <strong>Intelligent Customer Support Chatbot:</strong> Developed a conversational chatbot using the Google Gemini API with Firebase Firestore for session persistence and chat history management.
+                <strong>Smart Healthcare Diagnosis System:</strong> Trained deep learning models in PyTorch (CNNs &amp; Vision Transformers) for MRI brain tumor localization and multi-label chest X-ray pathology classification, achieving 94% test accuracy. (<a href="https://github.com/aliHasnainme/MRI_SCAN_PROJECT" target="_blank" rel="noopener">GitHub</a>)
               </li>
             </ul>
 
             <!-- TECHNICAL SKILLS -->
             <h2 id="skills">Technical Skills</h2>
             <ul class="small">
-              <li><strong>Languages &amp; Frameworks:</strong> Python, FastAPI, PyTorch, TensorFlow, Keras, Scikit-learn, Flutter, SQL.</li>
-              <li><strong>AI &amp; LLMs:</strong> LangGraph, LangChain, Transformers, RAG, Fine-tuning, Prompt Engineering.</li>
-              <li><strong>Vector &amp; Search:</strong> pgvector, Semantic Search, Gemini Embeddings, Haversine Geospatial Filtering.</li>
-              <li><strong>Computer Vision &amp; NLP:</strong> Image Classification, Object Detection, OCR, Google Vision AI, NER, Stable Diffusion.</li>
-              <li><strong>Tools &amp; Infrastructure:</strong> Docker, Git, Linux, Google Cloud Platform, PostgreSQL, Firebase.</li>
+              <li><strong>Languages:</strong> Python, JavaScript, TypeScript, SQL, Dart.</li>
+              <li><strong>Frameworks &amp; Libraries:</strong> FastAPI, PyTorch, TensorFlow, Keras, Scikit-learn, React 18, Vite, Flutter.</li>
+              <li><strong>AI &amp; LLMs:</strong> LangGraph, LangChain, Transformers, RAG, Prompt Engineering, Gemini API.</li>
+              <li><strong>Vector &amp; Search:</strong> pgvector, Gemini Embeddings, Semantic Search, Haversine Geospatial Filtering.</li>
+              <li><strong>Automation &amp; Scraping:</strong> Playwright, Selenium, Meta Graph API, Meta Ads Manager API.</li>
+              <li><strong>Computer Vision &amp; NLP:</strong> Image Classification, Object Detection, OCR, Google Vision AI, 3D Mesh Generation.</li>
+              <li><strong>Databases &amp; Cloud:</strong> PostgreSQL, Supabase, Firebase, Docker, Linux, Git, Google Cloud Platform.</li>
             </ul>
 
             <!-- CERTIFICATIONS -->
@@ -237,6 +235,35 @@
               <li><strong>English:</strong> Professional proficiency (PTE Academic in progress)</li>
               <li><strong>Urdu:</strong> Native</li>
             </ul>
+
+            <!-- REFERENCES -->
+            <h2 id="references">Academic References</h2>
+            <div class="row g-3 small">
+              <div class="col-12 col-md-4">
+                <div class="p-2 border rounded bg-light">
+                  <strong>Mr. Junaid Ahmed</strong><br>
+                  <span class="text-muted">Lecturer, Dept. of Computer Science</span><br>
+                  <span class="text-muted">University of Sahiwal, Pakistan</span><br>
+                  <span class="text-muted">junaidahmad@uosahiwal.edu.pk</span>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="p-2 border rounded bg-light">
+                  <strong>Dr. Shafiq Hussain</strong><br>
+                  <span class="text-muted">Associate Professor, Dept. of Computer Science</span><br>
+                  <span class="text-muted">University of Sahiwal, Pakistan</span><br>
+                  <span class="text-muted">drshafiq@uosahiwal.edu.pk</span>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="p-2 border rounded bg-light">
+                  <strong>Ms. Qurat Ul Ain</strong><br>
+                  <span class="text-muted">Lecturer, Dept. of Computer Science</span><br>
+                  <span class="text-muted">University of Sahiwal, Pakistan</span><br>
+                  <span class="text-muted">quratulain@uosahiwal.edu.pk</span>
+                </div>
+              </div>
+            </div>
 
           </main>
 
@@ -265,7 +292,7 @@
       <div class="search-modal">
         <div class="search-modal-header">
           <i class="fas fa-search text-muted"></i>
-          <input type="text" id="modal-search-input" placeholder="Search papers, projects, notes, CV..." autocomplete="off">
+          <input type="text" id="modal-search-input" placeholder="Search projects, CV, publications..." autocomplete="off">
           <span class="badge bg-light text-dark">ESC</span>
         </div>
         <div class="search-results-list" id="search-results-list"></div>

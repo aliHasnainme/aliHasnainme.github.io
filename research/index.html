@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Research &amp; Projects | Ali Hasnain</title>
-    <meta name="description" content="Research projects and technical architectures by Ali Hasnain: Multi-agent systems, reliable execution, and deep learning.">
+    <title>Projects | Ali Hasnain</title>
+    <meta name="description" content="Technical projects and engineering systems by Ali Hasnain: Multi-agent systems, 3D generation pipelines, semantic search, and computer vision.">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -51,15 +51,9 @@
                         </a>
                       </li>
                       <li>
-                        <a href="../bio_and_cv/index.html" class="td-sidebar-link">
-                          <i class="fas fa-user"></i>
-                          <span>Bio &amp; CV</span>
-                        </a>
-                      </li>
-                      <li>
                         <a href="../research/index.html" class="td-sidebar-link active">
                           <i class="fas fa-flask"></i>
-                          <span>Research &amp; Projects</span>
+                          <span>Projects</span>
                         </a>
                       </li>
                       <li>
@@ -69,9 +63,9 @@
                         </a>
                       </li>
                       <li>
-                        <a href="../software/index.html" class="td-sidebar-link">
-                          <i class="fas fa-code"></i>
-                          <span>Software</span>
+                        <a href="../bio_and_cv/index.html" class="td-sidebar-link">
+                          <i class="fas fa-user"></i>
+                          <span>Bio &amp; CV</span>
                         </a>
                       </li>
                       <li>
@@ -115,109 +109,113 @@
             <nav class="td-breadcrumbs" aria-label="breadcrumb">
               <a href="../index.html">Home</a>
               <span class="separator">/</span>
-              <span>Research &amp; Projects</span>
+              <span>Projects</span>
             </nav>
 
-            <h1>Research &amp; Projects</h1>
+            <h1>Projects &amp; Systems</h1>
 
             <p>
-              My research and engineering work centers on making multi-agent LLM systems reliable and practical. In complex tasks requiring many conversational turns, multiple tools, or asynchronous sub-tasks, models often run into real-world hurdles: dropped context, schema parsing errors, and conflicting assumptions between agents. Below are details of the systems I've built to tackle these problems.
+              A selection of engineering and research projects I have built, spanning multi-agent orchestration, generative 3D pipelines, geospatial semantic search, web scraping, and computer vision.
             </p>
 
             <!-- VALIDATOR-AI -->
             <h2 id="validator-ai">Validator AI: Multi-Agent Startup Validation Platform</h2>
             <div class="text-muted small mb-3">
-              <em>Bachelor's Final Year Project &amp; Thesis &bull; University of Sahiwal (2025&ndash;2026)</em> &bull;
+              <em>Bachelor's Capstone &amp; Final Year Project &bull; University of Sahiwal (2025&ndash;2026)</em> &bull;
               <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>aliHasnainme/validator-ai</a>
             </div>
 
             <p>
-              <strong>Validator AI</strong> was my undergraduate capstone project and bachelor's thesis. Evaluating a new startup idea thoroughly requires examining multiple angles: market demand, financial viability, tech stack feasibility, competitors, and potential legal hurdles. Doing this manually takes days of research, but giving the entire task to a single LLM prompt leads to hallucinated data and shallow answers. Validator AI explores how a team of specialized agents—each focused on one specific domain—can collaborate to produce a rigorous, structured validation report.
+              <strong>Validator AI</strong> was my undergraduate capstone project and bachelor's thesis. Thoroughly evaluating early-stage startup ideas requires analyzing multiple domains: market demand, financial viability, tech stack feasibility, competitors, and potential regulatory risks. Giving this entire task to a single LLM prompt leads to hallucinated data and shallow answers. Validator AI coordinates a team of specialized agents—each focused on one specific domain—to interview founders and compile a comprehensive validation report.
             </p>
 
-            <h3 id="validator-pipeline">How the Multi-Agent Pipeline Works</h3>
-            <ol class="small">
-              <li><strong>Adaptive Founder Interview:</strong> An interviewer agent asks 1&ndash;5 clarifying questions to unpack the founder's core thesis, target audience, and business model before analysis begins.</li>
-              <li><strong>Live Web Research:</strong> A researcher agent queries the Tavily API to gather live market data, recent competitors, and industry benchmarks.</li>
-              <li><strong>Concurrent Domain Analysis:</strong> Up to 10 specialized agent modules run in parallel:
-                <ul>
-                  <li>Market Size &amp; Opportunity &bull; Financial Projections &bull; Technical Architecture &bull; Competitor Analysis</li>
-                  <li>Business Model Canvas (BMC) &bull; Regulatory Compliance &bull; Go-to-Market Strategy</li>
-                  <li>Risk Assessment &bull; Product Roadmap &bull; Funding &amp; Pitch Strategy</li>
-                </ul>
-              </li>
-              <li><strong>Contradiction Resolution &amp; Compilation:</strong> Because agents analyze independently, they can occasionally make conflicting assumptions (e.g., market size assuming an enterprise model while the financial module projects consumer margins). A Compiler agent inspects cross-module outputs, resolves discrepancies, and harmonizes the findings.</li>
-              <li><strong>Report Generation:</strong> Formats the finalized data into interactive HTML and JSON reports complete with structured domain scores, viability metrics, and actionable recommendations.</li>
-            </ol>
-
-            <h3 id="validator-architecture">System Architecture &amp; Reliability Engineering</h3>
+            <h3 id="validator-pipeline">System Design &amp; Architecture</h3>
             <ul>
-              <li><strong>Stateful Graph (LangGraph):</strong> The system is modeled as a cyclic state graph with a shared blackboard state (<code>ValidationState</code>).</li>
-              <li><strong>State Checkpointing (PostgreSQL):</strong> Because full evaluations take a couple of minutes, I integrated PostgreSQL checkpointing so workflows can be safely paused, inspected, and resumed at any step without losing progress.</li>
-              <li><strong>Self-Healing Output Parser:</strong> LLMs frequently introduce subtle syntax errors or markdown wrapping when asked for complex JSON. To avoid pipeline failures, I built a progressive recovery fallback: strict Pydantic parsing &rarr; regex JSON block extraction &rarr; brace balance repair &rarr; syntax correction.</li>
-              <li><strong>Asynchronous Acceleration:</strong> Running 10 analysis modules sequentially took ~20 minutes. By parallelizing independent LLM calls with Python's <code>asyncio.gather</code>, I brought the full report compilation time down to under 3 minutes.</li>
+              <li><strong>Conversational Founder Interview:</strong> An interviewer agent asks clarifying questions to unpack the core thesis, target audience, and business model before analysis begins.</li>
+              <li><strong>Live Web Research:</strong> A researcher agent queries the Tavily API to gather live market data, recent competitors, and industry benchmarks.</li>
+              <li><strong>Stateful Graph (LangGraph):</strong> The orchestration is modeled as a stateful cyclic graph with a shared blackboard state.</li>
+              <li><strong>State Checkpointing (PostgreSQL):</strong> Integrated database checkpointing so long-running evaluations can be paused, inspected, and resumed at any step without losing intermediate state.</li>
+              <li><strong>Self-Healing Output Parser:</strong> Engineered a progressive recovery fallback parser (strict schema parsing &rarr; regex JSON block extraction &rarr; brace balance repair &rarr; syntax correction) that fixes malformed LLM responses on the fly without crashing the pipeline.</li>
+              <li><strong>Asynchronous Acceleration:</strong> Running 10 analysis modules sequentially took ~20 minutes. By parallelizing independent LLM calls with Python's <code>asyncio.gather</code>, total report compilation time was reduced to under 3 minutes.</li>
+              <li><strong>Full-Stack Architecture:</strong> Built an async FastAPI backend containerized with Docker, paired with a modern React 18 + TypeScript frontend styled with Tailwind CSS.</li>
             </ul>
 
-            <h3 id="validator-stack">Full-Stack Implementation</h3>
-            <div class="table-responsive">
-              <table class="table table-bordered table-sm small">
-                <tbody>
-                  <tr>
-                    <td class="fw-bold bg-light" style="width: 25%;">Agent Orchestration</td>
-                    <td>LangGraph, LangChain, Blackboard State Pattern</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-bold bg-light">Backend API</td>
-                    <td>FastAPI (Async REST endpoints, rate limiting, Pydantic V2)</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-bold bg-light">Frontend</td>
-                    <td>React 18, TypeScript, Vite, Tailwind CSS, shadcn/ui</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-bold bg-light">Database &amp; Checkpoints</td>
-                    <td>PostgreSQL, Supabase (Graph checkpointing, session management)</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-bold bg-light">Deployment</td>
-                    <td>Docker, Docker Compose, uv package manager</td>
-                  </tr>
-                </tbody>
-              </table>
+            <p class="mt-2">
+              <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> View Validator AI Repository</a>
+            </p>
+
+            <!-- TEXT-TO-3D -->
+            <h2 id="text-to-3d">Text &amp; Image to 3D Generation Pipeline</h2>
+            <div class="text-muted small mb-2">
+              <em>Industry Role &bull; AI 3D Scanning Solution (2025&ndash;Present)</em>
             </div>
+            <p>
+              Developed production pipelines combining generative computer vision models, retrieval-augmented generation, and microservices:
+            </p>
+            <ul>
+              <li><strong>3D Asset Generation Pipeline:</strong> Built an automated pipeline using open-source models to generate textured 3D meshes from user text prompts and reference 2D images.</li>
+              <li><strong>Conversational RAG Assistant:</strong> Integrated a conversational layer built with LangChain and LangGraph to answer domain-specific questions with grounded context.</li>
+              <li><strong>Microservice Backend:</strong> Designed asynchronous FastAPI backend services with SQLAlchemy ORM and containerized Docker orchestration for reliable deployment.</li>
+            </ul>
+
+            <!-- LOCAL MART -->
+            <h2 id="local-mart">Local Mart &mdash; Hyperlocal AI Commerce &amp; Semantic Search</h2>
+            <div class="text-muted small mb-2">
+              <em>Open Source &bull; FastAPI, Flutter, pgvector, Gemini &bull;</em>
+              <a href="https://github.com/aliHasnainme/local-mart" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>aliHasnainme/local-mart</a>
+            </div>
+            <p>
+              An AI-powered hyperlocal commerce platform connecting local buyers with neighborhood merchants:
+            </p>
+            <ul>
+              <li><strong>Semantic Product Search:</strong> Generated dense vector embeddings using Google Gemini models, indexed in PostgreSQL using <code>pgvector</code> for natural language product discovery.</li>
+              <li><strong>Haversine Geospatial Filtering:</strong> Combined vector similarity with SQL-level Haversine distance calculations to return listings within user-specified physical distance radiuses.</li>
+              <li><strong>Multimodal Tagging:</strong> Utilized Gemini Vision for automated product categorization, image tagging, and description generation from merchant photos.</li>
+              <li><strong>Mobile &amp; API Stack:</strong> Cross-platform Flutter mobile application backed by an asynchronous FastAPI backend service.</li>
+            </ul>
 
             <p class="mt-2">
-              <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> View Full Repository &amp; Code</a>
+              <a href="https://github.com/aliHasnainme/local-mart" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> View Local Mart Repository</a>
+            </p>
+
+            <!-- SOCIAL MEDIA AUTOMATION & LEAD SCRAPER -->
+            <h2 id="social-automation">Social Media Campaign Automation &amp; Google Maps Lead Scraper</h2>
+            <div class="text-muted small mb-2">
+              <em>Industry Role &bull; Medtronix Systems / Netso (2023&ndash;2025) &bull;</em>
+              <a href="https://github.com/aliHasnainme/google-maps-scraper" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>aliHasnainme/google-maps-scraper</a>
+            </div>
+            <p>
+              Developed marketing automation engines and data scraping systems for the Netso social media platform:
+            </p>
+            <ul>
+              <li><strong>Meta Graph API Automation:</strong> Automated publishing and scheduling for Facebook and Instagram posts and stories, real-time comment tracking, and performance analytics retrieval.</li>
+              <li><strong>Meta Ads Manager API:</strong> Built programmatic ad campaign management: automated campaign creation, custom audience targeting, budget allocation, and ad performance monitoring.</li>
+              <li><strong>Google Maps Business Lead Scraper:</strong> Engineered high-volume web scrapers using Python, Playwright, and Selenium to extract local business leads (names, addresses, ratings, phone numbers, and websites) based on location queries (e.g. searching restaurants or clinics in Sahiwal).</li>
+              <li><strong>Document Extraction Pipeline:</strong> Built an invoice parsing service combining Google Vision AI (OCR) and Gemini to extract structured line items from PDF invoices and validate them against internal databases.</li>
+            </ul>
+
+            <p class="mt-2">
+              <a href="https://github.com/aliHasnainme/google-maps-scraper" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> View Scraper Repository</a>
             </p>
 
             <!-- HEALTHCARE -->
             <h2 id="healthcare">Smart Healthcare Diagnosis System</h2>
             <div class="text-muted small mb-2">
-              <em>Personal Project &bull; PyTorch, Transformers</em>
+              <em>Personal Project &bull; PyTorch, Torchvision, Transformers &bull;</em>
+              <a href="https://github.com/aliHasnainme/MRI_SCAN_PROJECT" target="_blank" rel="noopener"><i class="fab fa-github me-1"></i>aliHasnainme/MRI_SCAN_PROJECT</a>
             </div>
             <p>
               Trained and evaluated deep learning models for diagnostic medical imaging:
             </p>
             <ul>
-              <li><strong>Brain Tumor Detection (MRI):</strong> Classifying intracranial lesions from preprocessed MRI scans using convolutional networks.</li>
-              <li><strong>Chest X-Ray Pathology:</strong> Multi-label classification for common pulmonary conditions.</li>
-              <li>Achieved <strong>94% classification accuracy</strong> on the held-out test split using standard data augmentation and transfer learning.</li>
+              <li><strong>Brain Tumor Detection (MRI):</strong> Convolutional neural networks trained to classify intracranial lesions from preprocessed MRI scans.</li>
+              <li><strong>Chest X-Ray Pathology:</strong> Multi-label classification models for detecting pulmonary conditions from chest radiography.</li>
+              <li>Achieved <strong>94% classification accuracy</strong> on held-out test splits using standard data augmentation and transfer learning.</li>
             </ul>
 
-            <!-- MULTIMODAL 3D -->
-            <h2 id="text-to-3d">Text-to-3D Generation &amp; Geospatial Search</h2>
-            <div class="text-muted small mb-2">
-              <em>Industry Role &bull; AI 3D Scanning Solution (2025&ndash;Present)</em>
-            </div>
-            <p>
-              Built production pipelines combining generative AI, vector retrieval, and geospatial filtering:
+            <p class="mt-2">
+              <a href="https://github.com/aliHasnainme/MRI_SCAN_PROJECT" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> View MRI Project Repository</a>
             </p>
-            <ul>
-              <li><strong>Text-to-3D Pipeline:</strong> Integrated open-source models to generate textured 3D meshes from user prompts and reference view angles.</li>
-              <li><strong>Conversational RAG Assistant:</strong> Grounded user assistant built with LangChain and LangGraph for catalog search and question answering.</li>
-              <li><strong>Geospatial Semantic Search:</strong> Stored Gemini embeddings in PostgreSQL with <code>pgvector</code>, filtering search results using the Haversine formula to return nearby locations matching natural language queries.</li>
-              <li><strong>Microservice Backend:</strong> Asynchronous FastAPI service with SQLAlchemy ORM and containerized Docker orchestration.</li>
-            </ul>
 
           </main>
 
@@ -246,7 +244,7 @@
       <div class="search-modal">
         <div class="search-modal-header">
           <i class="fas fa-search text-muted"></i>
-          <input type="text" id="modal-search-input" placeholder="Search papers, projects, notes, CV..." autocomplete="off">
+          <input type="text" id="modal-search-input" placeholder="Search projects, CV, publications..." autocomplete="off">
           <span class="badge bg-light text-dark">ESC</span>
         </div>
         <div class="search-results-list" id="search-results-list"></div>

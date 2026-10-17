@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Ali Hasnain | Homepage</title>
-    <meta name="description" content="Personal academic homepage of Ali Hasnain. Machine learning, multi-agent systems, and software engineering.">
+    <meta name="description" content="Personal academic homepage of Ali Hasnain. Software Engineering graduate from University of Sahiwal. Machine learning, computer vision, and AI systems.">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -56,15 +56,9 @@
                         </a>
                       </li>
                       <li>
-                        <a href="bio_and_cv/index.html" class="td-sidebar-link">
-                          <i class="fas fa-user"></i>
-                          <span>Bio &amp; CV</span>
-                        </a>
-                      </li>
-                      <li>
                         <a href="research/index.html" class="td-sidebar-link">
                           <i class="fas fa-flask"></i>
-                          <span>Research &amp; Projects</span>
+                          <span>Projects</span>
                         </a>
                       </li>
                       <li>
@@ -74,9 +68,9 @@
                         </a>
                       </li>
                       <li>
-                        <a href="software/index.html" class="td-sidebar-link">
-                          <i class="fas fa-code"></i>
-                          <span>Software</span>
+                        <a href="bio_and_cv/index.html" class="td-sidebar-link">
+                          <i class="fas fa-user"></i>
+                          <span>Bio &amp; CV</span>
                         </a>
                       </li>
                       <li>
@@ -125,68 +119,126 @@
             <div class="mb-3">
               <h1 class="border-0 mb-1">Ali Hasnain</h1>
               <p class="text-muted">
-                Software Engineering Graduate &bull; AI Developer &amp; Researcher
+                Software Engineering Graduate &bull; AI &amp; Python Developer
               </p>
             </div>
 
             <p>
-              Hi, I'm Ali. I recently graduated with a BS in Software Engineering from the <strong>University of Sahiwal</strong>, Pakistan (CGPA 3.63 / 4.00). My main focus is on artificial intelligence and machine learning, with a strong interest in multi-agent systems, generative models, and making LLM pipelines reliable enough for real-world production.
+              Hi, I'm Ali. I recently graduated with a BS in Software Engineering from the <strong>University of Sahiwal</strong>, Pakistan (CGPA 3.63 / 4.00). My broad area of interest is artificial intelligence, with a focus spanning machine learning, deep learning, computer vision, natural language processing, and multimodal systems.
             </p>
 
             <p>
-              Much of my recent work focuses on solving the practical problems that arise when building complex agent workflows: keeping track of session state across multi-turn conversations, handling schema mismatches and broken JSON outputs gracefully, and optimizing latency across distributed calls.
+              Alongside my studies, I have worked professionally as a Python developer. At <em>AI 3D Scanning Solution</em>, I developed text-to-3D and image-to-3D asset generation pipelines and semantic search systems. Previously at <em>Medtronix Systems</em> / <em>Netso</em>, I built social media and advertising automation tools using the Meta Graph API, as well as business lead generation scrapers using Selenium and Playwright.
             </p>
 
             <p>
-              Alongside my studies, I have worked as a Python developer at <em>AI 3D Scanning Solution</em> and <em>Medtronix Systems</em>. In those roles, I built text-to-3D asset pipelines, conversational RAG assistants using LangChain and LangGraph, semantic vector search services using pgvector and Gemini embeddings, and asynchronous FastAPI microservices.
+              I am currently preparing for graduate studies (MS / PhD) in Computer Science and Artificial Intelligence.
             </p>
 
-            <p>
-              I am currently writing up a research paper based on my final year capstone project (Validator AI) and preparing applications for MS/PhD programs in Computer Science and AI.
-            </p>
-
-            <h2 id="research-interests">Research Interests</h2>
+            <h2 id="research-interests">Areas of Interest</h2>
             <ul>
-              <li><strong>Multi-Agent Systems &amp; State Persistence:</strong> Coordinating specialized agents in cyclic graphs (LangGraph) with database checkpointing so workflows can be paused, inspected, and resumed without losing state.</li>
-              <li><strong>Reliable LLM Pipelines:</strong> Building deterministic fallback layers to catch and repair schema deviations, malformed JSON, and logical contradictions across multi-agent reasoning steps.</li>
-              <li><strong>Semantic Search &amp; Retrieval (RAG):</strong> Combining dense vector search (pgvector, Gemini embeddings) with geospatial filtering (Haversine distance) to build grounded, context-rich retrieval systems.</li>
-              <li><strong>Generative AI &amp; Vision:</strong> Text-to-3D asset generation, diffusion models, and diagnostic deep learning models for medical image classification.</li>
+              <li><strong>Computer Vision &amp; 3D Generative AI:</strong> Text-to-3D and image-to-3D asset generation pipelines, generative models, and diagnostic deep learning models for medical imaging.</li>
+              <li><strong>Machine Learning &amp; Deep Learning:</strong> Neural network architectures, supervised and unsupervised learning, transfer learning, and model evaluation using PyTorch and TensorFlow.</li>
+              <li><strong>Multimodal Systems &amp; Agent Workflows:</strong> Graph-based agent orchestration (LangGraph), state persistence with database checkpointers, and self-healing schema validation.</li>
+              <li><strong>Semantic Search &amp; Retrieval:</strong> Dense vector retrieval using <code>pgvector</code>, Google Gemini embeddings, and geospatial distance filtering with the Haversine formula.</li>
             </ul>
 
-            <h2 id="final-year-project">Bachelor's Final Year Project</h2>
+            <h2 id="selected-projects">Selected Projects</h2>
 
+            <!-- Validator AI -->
             <div class="pub-item">
               <div class="pub-title">
-                <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener">Validator AI &mdash; Multi-Agent Startup Validation Platform</a>
+                <a href="research/index.html#validator-ai">Validator AI &mdash; Multi-Agent Startup Validation Platform</a>
               </div>
               <div class="pub-authors">
-                <strong>Ali Hasnain</strong> &mdash; <em>Final Year Project &amp; Thesis &bull; University of Sahiwal (2025–2026)</em>
+                <strong>Ali Hasnain</strong> &bull; <em>Bachelor's Capstone &amp; Final Year Project &bull; University of Sahiwal (2025–2026)</em>
               </div>
               <p class="text-muted small mb-2">
-                For my undergraduate capstone project and thesis, I wanted to see how autonomous LLM agents could tackle complex analytical work that usually takes days of manual effort. Validator AI interviews founders, performs live market research via Tavily, and coordinates 10 specialized agent modules to generate thorough startup validation reports.
+                An autonomous platform built with LangGraph that conducts founder interviews, runs live web research via Tavily, and coordinates 10 specialized agent modules concurrently. Features PostgreSQL state checkpointing for pause-and-resume capability, a self-healing JSON parser, and an asynchronous FastAPI backend with a React frontend.
               </p>
-              <ul class="text-muted small mb-2">
-                <li><strong>LangGraph Workflow:</strong> Modeled as a stateful cyclic graph with a shared blackboard state (<code>ValidationState</code>). Uses a PostgreSQL checkpointer so users can pause an evaluation, review intermediate findings, and resume seamlessly.</li>
-                <li><strong>Parallel Execution:</strong> Ran independent analysis modules concurrently using Python's <code>asyncio.gather</code> (handling up to 15 concurrent LLM calls), bringing total report generation time down from ~20 minutes to under 3 minutes.</li>
-                <li><strong>Self-Healing Output Parser:</strong> Engineered a progressive fallback parser (structured output &rarr; regex extraction &rarr; brace matching &rarr; syntax repair) that fixes broken JSON responses on the fly instead of crashing the pipeline.</li>
-                <li><strong>Full-Stack Architecture:</strong> Built an async FastAPI backend containerized with Docker, paired with a React 18 + TypeScript + Vite frontend styled with Tailwind CSS.</li>
-              </ul>
               <div class="pub-links">
-                <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> GitHub Repository</a>
-                <a href="research/index.html#validator-ai" class="btn-paper"><i class="fas fa-info-circle"></i> Architecture &amp; System Design</a>
+                <a href="https://github.com/aliHasnainme/validator-ai" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> GitHub</a>
+                <a href="research/index.html#validator-ai" class="btn-paper"><i class="fas fa-arrow-right"></i> Project Details</a>
               </div>
             </div>
 
-            <h2 id="news">News &amp; Updates</h2>
+            <!-- Text-to-3D Pipeline -->
+            <div class="pub-item">
+              <div class="pub-title">
+                <a href="research/index.html#text-to-3d">Text &amp; Image to 3D Asset Generation Pipeline</a>
+              </div>
+              <div class="pub-authors">
+                <strong>AI 3D Scanning Solution</strong> &bull; <em>Industry Role (2025–Present)</em>
+              </div>
+              <p class="text-muted small mb-2">
+                Developed an end-to-end generative system that converts natural language prompts and reference images into complete, textured 3D assets using open-source models, paired with a conversational RAG assistant for domain queries.
+              </p>
+              <div class="pub-links">
+                <a href="research/index.html#text-to-3d" class="btn-paper"><i class="fas fa-arrow-right"></i> Project Details</a>
+              </div>
+            </div>
+
+            <!-- Local Mart -->
+            <div class="pub-item">
+              <div class="pub-title">
+                <a href="research/index.html#local-mart">Local Mart &mdash; Hyperlocal AI Commerce &amp; Semantic Search</a>
+              </div>
+              <div class="pub-authors">
+                <strong>Ali Hasnain</strong> &bull; <em>FastAPI, Flutter, pgvector, Gemini</em>
+              </div>
+              <p class="text-muted small mb-2">
+                An AI-driven local commerce platform featuring semantic product discovery via Gemini embeddings in PostgreSQL (<code>pgvector</code>) combined with Haversine formula geospatial radius filtering, and multimodal product tagging.
+              </p>
+              <div class="pub-links">
+                <a href="https://github.com/aliHasnainme/local-mart" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> GitHub</a>
+                <a href="research/index.html#local-mart" class="btn-paper"><i class="fas fa-arrow-right"></i> Project Details</a>
+              </div>
+            </div>
+
+            <!-- Social Media Automation & Scraper -->
+            <div class="pub-item">
+              <div class="pub-title">
+                <a href="research/index.html#social-automation">Social Media Automation &amp; Google Maps Lead Scraper</a>
+              </div>
+              <div class="pub-authors">
+                <strong>Medtronix Systems / Netso</strong> &bull; <em>Industry Role (2023–2025)</em>
+              </div>
+              <p class="text-muted small mb-2">
+                Automated social media publishing, story scheduling, performance analytics, and programmatic Meta Ads Manager campaign creation using the Meta Graph API, alongside a high-volume Google Maps business lead scraper built with Playwright and Selenium.
+              </p>
+              <div class="pub-links">
+                <a href="https://github.com/aliHasnainme/google-maps-scraper" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> GitHub Scraper</a>
+                <a href="research/index.html#social-automation" class="btn-paper"><i class="fas fa-arrow-right"></i> Project Details</a>
+              </div>
+            </div>
+
+            <!-- Healthcare Diagnosis -->
+            <div class="pub-item">
+              <div class="pub-title">
+                <a href="research/index.html#healthcare">Smart Healthcare Diagnosis System</a>
+              </div>
+              <div class="pub-authors">
+                <strong>Ali Hasnain</strong> &bull; <em>PyTorch, Torchvision, Transformers</em>
+              </div>
+              <p class="text-muted small mb-2">
+                Trained deep learning models for MRI brain tumor localization and multi-label chest X-ray pathology classification, achieving 94% test accuracy with convolutional neural networks and vision backbones.
+              </p>
+              <div class="pub-links">
+                <a href="https://github.com/aliHasnainme/MRI_SCAN_PROJECT" target="_blank" rel="noopener" class="btn-paper"><i class="fab fa-github"></i> GitHub</a>
+                <a href="research/index.html#healthcare" class="btn-paper"><i class="fas fa-arrow-right"></i> Project Details</a>
+              </div>
+            </div>
+
+            <h2 id="news">Recent Updates</h2>
             <ul class="list-unstyled small">
               <li class="mb-2">
-                <span class="text-muted fw-bold me-2">2026</span> Graduated with a BS in Software Engineering from the University of Sahiwal (CGPA 3.63 / 4.00).
+                <span class="text-muted fw-bold me-2">2026</span> Completed BS in Software Engineering from the University of Sahiwal (CGPA 3.63 / 4.00).
               </li>
               <li class="mb-2">
-                <span class="text-muted fw-bold me-2">2026</span> Finalized benchmarks and ablation tests for Validator AI; drafting a manuscript for research submission.
+                <span class="text-muted fw-bold me-2">2026</span> Developed and presented <em>Validator AI</em> as Bachelor's Final Year Project and Capstone.
               </li>
               <li class="mb-2">
-                <span class="text-muted fw-bold me-2">2025</span> Joined AI 3D Scanning Solution as a Python Developer, working on text-to-3D pipelines and semantic search.
+                <span class="text-muted fw-bold me-2">2025</span> Joined AI 3D Scanning Solution as a Python Developer working on text/image-to-3D pipelines and semantic search.
               </li>
               <li class="mb-2">
                 <span class="text-muted fw-bold me-2">2024</span> Completed DeepLearning.AI Specializations in Machine Learning and Mathematics for ML.
@@ -222,7 +274,7 @@
       <div class="search-modal">
         <div class="search-modal-header">
           <i class="fas fa-search text-muted"></i>
-          <input type="text" id="modal-search-input" placeholder="Search papers, projects, notes, CV..." autocomplete="off">
+          <input type="text" id="modal-search-input" placeholder="Search projects, CV, publications..." autocomplete="off">
           <span class="badge bg-light text-dark">ESC</span>
         </div>
         <div class="search-results-list" id="search-results-list"></div>
